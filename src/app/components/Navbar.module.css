@@ -1,15 +1,23 @@
 .navbar {
+  width: 100%;
+  background-color: var(--background);
+  backdrop-filter: blur(12px);
+  background-color: rgba(18, 18, 18, 0.6); /* semi-transparent dark */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbarContainer {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: var(--background);
-  color: var(--foreground);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  z-index: 100;
 }
 
 .brand {
@@ -29,6 +37,7 @@
   object-fit: cover;
 }
 
+/* Desktop Nav */
 .navLinks {
   display: flex;
   gap: 1.5rem;
@@ -52,61 +61,64 @@
   border-bottom: 2px solid var(--accent);
 }
 
-/* Hamburger Button Styles */
+/* Hamburger Button */
 .menuButton {
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 110;
 }
 
+.menuButton span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--foreground);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.menuButton.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menuButton.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuButton.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Nav */
 @media (max-width: 768px) {
   .menuButton {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    width: 32px;
-    height: 32px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 110;
-  }
-
-  .menuButton span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: var(--foreground);
-    transition: all 0.3s ease;
-    transform-origin: center;
-  }
-
-  .menuButton.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .menuButton.open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menuButton.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
   }
 
   .navLinks {
     position: absolute;
     top: 100%;
-    right: 1.5rem;
+    right: 1rem;
     flex-direction: column;
     align-items: flex-end;
     background: var(--background);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1rem;
     border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     opacity: 0;
-    transform: translateY(-10px);
     pointer-events: none;
+    transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
+    backdrop-filter: blur(10px);
+    background-color: rgba(30, 30, 30, 0.8);
   }
 
   .show {
@@ -116,6 +128,8 @@
   }
 
   .navLinks a {
-    margin: 0;
+    margin: 0.5rem 0;
   }
 }
+
+

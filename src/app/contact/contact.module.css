@@ -1,54 +1,91 @@
 .container {
-    max-width: 600px;
-    margin: 3rem auto;
-    padding: 1.5rem;
-    background: var(--background);
-    color: var(--foreground);
-  }
-  
-  .heading {
-    margin-bottom: 0.5rem;
-  }
-  
-  .subheading {
-    margin-bottom: 2rem;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .input,
-  .textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    background: transparent;
-    color: var(--foreground);
-    font-size: 1rem;
-  }
-  
-  .input:focus,
-  .textarea:focus {
-    border-color: var(--accent);
-    outline: none;
-  }
-  
-  .button {
-    padding: 0.75rem;
-    background-color: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-  }
-  
-  .button:hover {
-    opacity: 0.9;
-  }
-  
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  color: var(--foreground);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.subheading {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+
+.input,
+.textarea {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--foreground);
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.button {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0070f3;
+}
+
+.confirmation {
+  background: rgba(0, 128, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-top: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}

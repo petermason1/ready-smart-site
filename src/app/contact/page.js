@@ -28,58 +28,60 @@ export default function ContactPage() {
   }
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.heading}>Contact Us</h1>
-      <p className={styles.subheading}>
-        Got a question? Want to collaborate? Drop us a message below.
-      </p>
+    <main className="mainWrapper">
+      <div className={styles.container}>
+        <h1 className={styles.heading}>Contact Us</h1>
+        <p className={styles.subheading}>
+          Got a question? Want to collaborate? Drop us a message below.
+        </p>
 
-      {submitted ? (
-        <div className={styles.confirmation}>
-          ✅ Thanks! We&apos;ll be in touch soon.
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <label>
-            Name
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              required
-              className={styles.input}
-            />
-          </label>
+        {submitted ? (
+          <div className={styles.confirmation}>
+            ✅ Thanks! We&apos;ll be in touch soon.
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.field}>
+              <span>Name</span>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                className={styles.input}
+              />
+            </div>
 
-          <label>
-            Email
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              required
-              className={styles.input}
-            />
-          </label>
+            <div className={styles.field}>
+              <span>Email</span>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                className={styles.input}
+              />
+            </div>
 
-          <label>
-            Message
-            <textarea
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              required
-              className={styles.textarea}
-            />
-          </label>
+            <div className={styles.field}>
+              <span>Message</span>
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                required
+                className={styles.textarea}
+              />
+            </div>
 
-          <button type="submit" className={styles.button}>
-            Send Message
-          </button>
-        </form>
-      )}
-    </div>
+            <button type="submit" className={styles.button}>
+              Send Message
+            </button>
+          </form>
+        )}
+      </div>
+    </main>
   )
 }
