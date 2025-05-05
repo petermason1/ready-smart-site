@@ -1,15 +1,13 @@
 .navbar {
-  width: 100%;
+  width: 100vw; /* full viewport width */
   background-color: var(--background);
-  backdrop-filter: blur(12px);
-  background-color: rgba(18, 18, 18, 0.6); /* semi-transparent dark */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1rem 2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
+
 
 .navbarContainer {
   max-width: 1280px;
@@ -19,6 +17,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 
 .brand {
   display: flex;
@@ -131,5 +130,6 @@
     margin: 0.5rem 0;
   }
 }
+
 
 

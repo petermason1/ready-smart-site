@@ -1,5 +1,7 @@
 'use client'
+
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import styles from './Navbar.module.css'
@@ -14,11 +16,16 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
         <Link href="/" className={styles.brand}>
-          <img src="/logo.png" className={styles.logo} alt="Ready Smart Logo" />
+          <Image
+            src="/logo.png"
+            alt="Ready Smart Logo"
+            width={40}
+            height={40}
+            className={styles.logo}
+          />
           Ready Smart
         </Link>
 
-        {/* ✅ Hamburger button for mobile */}
         <button
           className={`${styles.menuButton} ${isOpen ? styles.open : ''}`}
           onClick={toggleMenu}
@@ -29,7 +36,6 @@ export default function Navbar() {
           <span />
         </button>
 
-        {/* ✅ Mobile menu toggle */}
         <ul className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}>
           <li><Link href="/">Home</Link></li>
           <li><Link href="/affiliate">Affiliate</Link></li>
