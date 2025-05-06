@@ -4,3 +4,4 @@ node_modules/
 *.lock
 .env.local
 .DS_Store
+.env.local
