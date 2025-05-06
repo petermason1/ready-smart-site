@@ -41,8 +41,8 @@ export default function ContactPage() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className={styles.form}>
-            <div className={styles.field}>
-              <span>Name</span>
+            <label className={styles.label}>
+              Name
               <input
                 type="text"
                 name="name"
@@ -51,10 +51,10 @@ export default function ContactPage() {
                 required
                 className={styles.input}
               />
-            </div>
+            </label>
 
-            <div className={styles.field}>
-              <span>Email</span>
+            <label className={styles.label}>
+              Email
               <input
                 type="email"
                 name="email"
@@ -63,10 +63,10 @@ export default function ContactPage() {
                 required
                 className={styles.input}
               />
-            </div>
+            </label>
 
-            <div className={styles.field}>
-              <span>Message</span>
+            <label className={styles.label}>
+              Message
               <textarea
                 name="message"
                 value={form.message}
@@ -74,7 +74,7 @@ export default function ContactPage() {
                 required
                 className={styles.textarea}
               />
-            </div>
+            </label>
 
             <button type="submit" className={styles.button}>
               Send Message

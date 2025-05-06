@@ -1,47 +1,35 @@
-'use client'
-
-import Link from 'next/link'
-import Image from 'next/image'
-import { usePathname } from 'next/navigation'
-import { useState } from 'react'
-import styles from './Navbar.module.css'
+'use client';
+import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from './Navbar.module.css';
 
 export default function Navbar() {
-  const pathname = usePathname()
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(prev => !prev)
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.navbarContainer}>
-        <Link href="/" className={styles.brand}>
-          <Image
-            src="/logo.png"
-            alt="Ready Smart Logo"
-            width={40}
-            height={40}
-            className={styles.logo}
-          />
-          Ready Smart
+    <header className={styles.navbar}>
+      <div className={styles.logoWrapper}>
+        <Link href="/" className={styles.branding}>
+          <Image src="/logo.png" alt="Logo" width={40} height={40} />
+          <span>Ready Smart Homes</span>
         </Link>
 
-        <button
-          className={`${styles.menuButton} ${isOpen ? styles.open : ''}`}
-          onClick={toggleMenu}
-          aria-label="Toggle navigation"
-        >
-          <span />
-          <span />
-          <span />
+        <button className={`${styles.burger} ${isOpen ? styles.open : ''}`} onClick={toggleMenu}>
+          <div></div>
+          <div></div>
+          <div></div>
         </button>
-
-        <ul className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}>
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="/affiliate">Affiliate</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
-        </ul>
       </div>
-    </nav>
-  )
+
+      <nav className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}>
+        <Link href="/">Home</Link>
+        <Link href="/contact">Contact</Link>
+        <Link href="/blog">Blog</Link>
+        <Link href="/smart-picks">Smart Picks</Link>
+      </nav>
+    </header>
+  );
 }

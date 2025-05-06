@@ -1,0 +1,73 @@
+.footer {
+  width: 100%;
+  background: linear-gradient(to right, #f0f2f5, #e2e8f0);
+  padding: 2.5rem 1rem 2rem;
+  color: var(--foreground, #333);
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.05);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.branding {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.footerNav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footerNav a {
+  color: var(--foreground, #333);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footerNav a:hover {
+  color: var(--accent, dodgerblue);
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.socialIcons a img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.socialIcons a:hover img {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+.copyright {
+  margin-top: 1rem;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+@media (max-width: 640px) {
+  .footerNav,
+  .socialIcons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer {
+    padding: 2rem 1rem;
+  }
+}
