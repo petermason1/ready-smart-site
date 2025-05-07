@@ -39,9 +39,25 @@ button {
   cursor: pointer;
 }
 
+.button:hover {
+  background-color: #005bb5 !important;
+  color: white !important;
+}
+
+
 /* === UTILITY === */
 img {
   max-width: 100%;
   display: block;
   height: auto;
+}
+body {
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
