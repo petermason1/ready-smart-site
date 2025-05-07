@@ -1,14 +1,13 @@
-/* Background wrapper */
+/* === BACKGROUND WRAPPER === */
 .bgWrapper {
   background: linear-gradient(to bottom right, #f7fafe, #ffffff);
   position: relative;
-  padding: 3rem 1rem 4rem;
+  padding: 2rem 1rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  align-items: flex-start;
+  flex: 1;
 }
-
 
 @media (min-width: 1024px) {
   .bgWrapper {
@@ -16,22 +15,39 @@
   }
 }
 
-/* Contact card */
+@media (max-width: 768px) {
+  .bgWrapper {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* === CONTACT CARD === */
 .contactSection {
   background: white;
   border-radius: 16px;
-  padding: 2.5rem 1.5rem;
-  max-width: 640px;
+  padding: 1.5rem 1rem;
   width: 100%;
+  max-width: 640px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  animation: floatUp 0.6s ease-out both;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  
+  animation: floatUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform;
 }
 
-/* Floating animation */
+.contactSection:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  background: #fdfdfd;
+}
+
+
+
+/* FLOATING ANIMATION */
 @keyframes floatUp {
   0% {
     opacity: 0;
-    transform: translateY(40px) scale(0.98);
+    transform: translateY(40px) scale(0.96);
   }
   100% {
     opacity: 1;
@@ -39,7 +55,8 @@
   }
 }
 
-/* Headings */
+
+/* === TYPOGRAPHY === */
 .heading {
   font-size: 2rem;
   font-weight: 700;
@@ -56,7 +73,7 @@
   line-height: 1.6;
 }
 
-/* Form layout */
+/* === FORM === */
 .form {
   display: flex;
   flex-direction: column;
@@ -88,12 +105,14 @@
 
 .input:focus,
 .textarea:focus {
-  outline: none;
   border-color: var(--accent, #0070f3);
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
   background-color: #fff;
+  transition: box-shadow 0.2s ease, background 0.2s ease;
 }
 
-/* Button */
+
+/* === BUTTON === */
 .button {
   padding: 0.75rem 1.25rem;
   background-color: var(--accent, #0070f3);
@@ -115,7 +134,7 @@
   outline-offset: 2px;
 }
 
-/* Confirmation message */
+/* === CONFIRMATION === */
 .confirmation {
   text-align: center;
   padding: 2rem 1rem;
@@ -148,7 +167,7 @@
   margin-bottom: 0.5rem;
 }
 
-/* Contact info */
+/* === CONTACT INFO === */
 .contactInfo {
   margin-top: 2rem;
   text-align: center;
@@ -156,28 +175,33 @@
   color: #444;
   line-height: 1.5;
 }
-@media (max-width: 768px) {
-  .bgWrapper {
-    padding-top: 2rem;
-  }
-}
 
-
-/* Mobile optimization */
+/* === MOBILE OPTIMIZATION === */
 @media (max-width: 480px) {
   .heading {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .subheading {
     font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .form {
+    gap: 1rem;
   }
 
   .contactSection {
-    padding: 2rem 1.25rem;
+    padding: 1.25rem;
   }
 
   .button {
     width: 100%;
+  }
+
+  .contactInfo {
+    font-size: 0.85rem;
+    margin-top: 1.5rem;
   }
 }
