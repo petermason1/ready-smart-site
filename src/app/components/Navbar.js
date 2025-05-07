@@ -9,6 +9,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const handleLinkClick = () => setIsOpen(false);
 
   return (
     <header className={styles.navbar}>
@@ -32,10 +33,10 @@ export default function Navbar() {
         </div>
 
         <nav className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}>
-          <Link href="/">Home</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/smart-picks">Smart Picks</Link>
+          <Link href="/" onClick={handleLinkClick}>Home</Link>
+          <Link href="/contact" onClick={handleLinkClick}>Contact</Link>
+          <Link href="/blog" onClick={handleLinkClick}>Blog</Link>
+          <Link href="/smart-picks" onClick={handleLinkClick}>Smart Picks</Link>
         </nav>
       </div>
     </header>
