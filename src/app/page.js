@@ -1,4 +1,4 @@
-// page.js - updated homepage with testimonial carousel and modern design
+// page.js
 
 'use client';
 
@@ -46,79 +46,82 @@ export default function Home() {
 
       <div className={styles.gridWrapper}>
         <div className={styles.grid}>
-          <div className={styles.card}>
-            <div className={styles.iconWrapper}>
-              <Image src="/icons/home-assistant.svg" alt="Home Assistant icon" width={32} height={32} />
+          {[
+            {
+              icon: '/icons/home-assistant.svg',
+              title: 'Home Assistant',
+              text: 'Powerful local control. Full automation. Privacy-first.',
+            },
+            {
+              icon: '/icons/apple.svg',
+              title: 'Apple Home',
+              text: 'Works seamlessly with your iPhone, iPad and Siri for voice control.',
+            },
+            {
+              icon: '/icons/alexa.svg',
+              title: 'Alexa Devices',
+              text: 'We configure, connect, and automate your Echo and Alexa-enabled gear.',
+            },
+            {
+              icon: '/icons/google-home.svg',
+              title: 'Google Home',
+              text: 'We set up Google Nest speakers, displays, and smart home control via Google Assistant.',
+            },
+          ].map((card, i) => (
+            <div key={i} className={styles.card}>
+              <div className={styles.iconWrapper}>
+                <Image src={card.icon} alt={card.title + ' icon'} width={32} height={32} />
+              </div>
+              <h2>{card.title}</h2>
+              <p>{card.text}</p>
+              <Link href="/contact">Get Started</Link>
             </div>
-            <h2>Home Assistant</h2>
-            <p>Powerful local control. Full automation. Privacy-first.</p>
-            <Link href="/contact">Get Started</Link>
-          </div>
-
-          <div className={styles.card}>
-            <div className={styles.iconWrapper}>
-              <Image src="/icons/apple.svg" alt="Apple Logo" width={32} height={32} />
-            </div>
-            <h2>Apple Home</h2>
-            <p>Works seamlessly with your iPhone, iPad and Siri for voice control.</p>
-            <Link href="/contact">Get Started</Link>
-          </div>
-
-          <div className={styles.card}>
-            <div className={styles.iconWrapper}>
-              <Image src="/icons/alexa.svg" alt="Alexa icon" width={32} height={32} />
-            </div>
-            <h2>Alexa Devices</h2>
-            <p>We configure, connect, and automate your Echo and Alexa-enabled gear.</p>
-            <Link href="/contact">Get Started</Link>
-          </div>
-
-          <div className={styles.card}>
-            <div className={styles.iconWrapper}>
-              <Image src="/icons/google-home.svg" alt="Google Home icon" width={32} height={32} />
-            </div>
-            <h2>Google Home</h2>
-            <p>We set up Google Nest speakers, displays, and smart home control via Google Assistant.</p>
-            <Link href="/contact">Get Started</Link>
-          </div>
+          ))}
         </div>
       </div>
 
       <div className={styles.sectionDivider} />
 
       <section className={styles.testimonials}>
-  <h3>What Customers Are Saying</h3>
-  <div className={styles.carousel}>
-    <Slider {...settings}>
-      <blockquote>
-        <p>&quot;Set up was fast, and now I control everything from my phone. Brilliant service!&quot;</p>
-        <div className={styles.stars}>★★★★★</div>
-        <cite>– Sarah, Newcastle</cite>
-      </blockquote>
-      <blockquote>
-        <p>&quot;Everything was explained clearly and set up quickly. My smart home now works like magic.&quot;</p>
-        <div className={styles.stars}>★★★★☆</div>
-        <cite>– James, Gateshead</cite>
-      </blockquote>
-      <blockquote>
-        <p>&quot;Absolutely love the automations. My lights, heating, and speakers all work together!&quot;</p>
-        <div className={styles.stars}>★★★★★</div>
-        <cite>– Claire, Durham</cite>
-      </blockquote>
-      <blockquote>
-        <p>&quot;Great attention to detail — they really listened to what I needed and tailored everything to my setup.&quot;</p>
-        <div className={styles.stars}>★★★★★</div>
-        <cite>– Dan, Sunderland</cite>
-      </blockquote>
-      <blockquote>
-        <p>&quot;Highly professional and knowledgeable. The installation was smooth, and support was excellent.&quot;</p>
-        <div className={styles.stars}>★★★★★</div>
-        <cite>– Louise, Hexham</cite>
-      </blockquote>
-    </Slider>
-  </div>
-</section>
-
+        <h3>What Customers Are Saying</h3>
+        <div className={styles.carousel}>
+          <Slider {...settings}>
+            {[
+              {
+                quote: 'Set up was fast, and now I control everything from my phone. Brilliant service!',
+                stars: '★★★★★',
+                name: 'Sarah, Newcastle',
+              },
+              {
+                quote: 'Everything was explained clearly and set up quickly. My smart home now works like magic.',
+                stars: '★★★★☆',
+                name: 'James, Gateshead',
+              },
+              {
+                quote: 'Absolutely love the automations. My lights, heating, and speakers all work together!',
+                stars: '★★★★★',
+                name: 'Claire, Durham',
+              },
+              {
+                quote: 'Great attention to detail — they really listened to what I needed and tailored everything to my setup.',
+                stars: '★★★★★',
+                name: 'Dan, Sunderland',
+              },
+              {
+                quote: 'Highly professional and knowledgeable. The installation was smooth, and support was excellent.',
+                stars: '★★★★★',
+                name: 'Louise, Hexham',
+              },
+            ].map((t, i) => (
+              <blockquote key={i}>
+                <p>&quot;{t.quote}&quot;</p>
+                <div className={styles.stars}>{t.stars}</div>
+                <cite>– {t.name}</cite>
+              </blockquote>
+            ))}
+          </Slider>
+        </div>
+      </section>
     </div>
   );
 }

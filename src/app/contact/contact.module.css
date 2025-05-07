@@ -1,6 +1,81 @@
-.container {
-  max-width: 600px;
+/* contact.module.css */
+
+/* Page layout */
+.pageWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
   margin: 4rem auto;
+  padding: 0 1.5rem;
+  max-width: 1200px;
+  align-items: stretch; /* ✅ force both panels to same height */
+}
+
+/* Left panel */
+.infoPanel {
+  flex: 1 1 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+}
+
+.subheading {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+.contactDetails {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.contactDetails li {
+  margin-bottom: 0.5rem;
+}
+
+.trustNote {
+  font-size: 0.9rem;
+  color: #007a33;
+  margin-bottom: 1.5rem;
+}
+
+.imageWrapper {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.illustration {
+  border-radius: 12px;
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Right panel */
+.formPanel {
+  flex: 1 1 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 2.5rem 2rem;
   background: white;
   border-radius: 12px;
@@ -8,20 +83,7 @@
   color: var(--foreground);
 }
 
-.heading {
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-.subheading {
-  font-size: 1.1rem;
-  text-align: center;
-  opacity: 0.85;
-  margin-bottom: 2rem;
-}
-
+/* Form styling */
 .form {
   display: flex;
   flex-direction: column;
@@ -58,6 +120,7 @@
   background-color: #fff;
 }
 
+/* Button */
 .button {
   padding: 0.75rem 1.25rem;
   background-color: var(--accent);
@@ -74,6 +137,12 @@
   background-color: #0070f3;
 }
 
+.button:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Confirmation */
 .confirmation {
   text-align: center;
   padding: 2rem;
@@ -82,4 +151,46 @@
   border-radius: 8px;
   font-weight: 500;
   color: #007a33;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .pageWrapper {
+    flex-direction: column;
+  }
+
+  .infoPanel,
+  .formPanel {
+    width: 100%;
+  }
+
+  .illustration {
+    max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .subheading {
+    font-size: 1rem;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .formPanel,
+  .infoPanel {
+    padding: 2rem 1.25rem;
+  }
 }
