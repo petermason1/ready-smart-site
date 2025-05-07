@@ -38,6 +38,11 @@ html, body {
 }
 
 /* === FLEX PAGE STRUCTURE === */
+/* === FLEX PAGE STRUCTURE === */
+html, body {
+  height: 100%;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -48,21 +53,15 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 100vh;
-}
-
-.pageLayout {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 100vh;
 }
 
 .mainWrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
+
 
 /* === UTILITY CLASSES === */
 main {

@@ -29,24 +29,8 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="mainWrapper">
+    <main className={styles.contactPage}>
       <div className={styles.bgWrapper}>
-        {/* Blob Background */}
-        <div className={styles.blobWrapper}>
-          <svg
-            viewBox="0 0 600 600"
-            xmlns="http://www.w3.org/2000/svg"
-            className={styles.blob}
-          >
-            <g transform="translate(300,300)">
-              <path
-                d="M156.3,-181.8C198.3,-138.5,223.5,-69.2,211.2,-12.6C198.9,44.1,148.9,88.2,106.9,126.4C64.9,164.6,32.4,197,1.7,195.4C-29.1,193.8,-58.2,158.2,-102.7,126.8C-147.3,95.3,-207.3,68.1,-220.6,25.6C-233.8,-16.9,-200.4,-74.6,-160.7,-120.1C-121.1,-165.6,-75.1,-198.9,-18.1,-210.4C38.9,-221.8,77.9,-211.1,156.3,-181.8Z"
-                fill="rgba(0,112,243,0.07)"
-              />
-            </g>
-          </svg>
-        </div>
-
         <section className={styles.contactSection}>
           <h1 className={styles.heading}>Let’s Connect</h1>
           <p className={styles.subheading}>

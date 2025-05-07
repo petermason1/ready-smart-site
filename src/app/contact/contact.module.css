@@ -1,66 +1,39 @@
+/* === PAGE STRUCTURE === */
+.contactPage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
 /* === BACKGROUND WRAPPER === */
 .bgWrapper {
-  background: linear-gradient(to bottom right, #f7fafe, #ffffff);
-  position: relative;
-  padding: 2rem 1rem;
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  flex: 1;
-}
-
-@media (min-width: 1024px) {
-  .bgWrapper {
-    padding: 6rem 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .bgWrapper {
-    padding-top: 1.5rem;
-    padding-bottom: 2rem;
-  }
+  align-items: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(to bottom right, #f0f8ff, #ffffff);
 }
 
 /* === CONTACT CARD === */
 .contactSection {
   background: white;
   border-radius: 16px;
-  padding: 1.5rem 1rem;
+  padding: 2rem;
   width: 100%;
   max-width: 640px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;  
-  animation: floatUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-  will-change: transform;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  animation: floatUp 0.6s ease-out both;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-.contactSection:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-  background: #fdfdfd;
-}
-
-
-
-/* FLOATING ANIMATION */
-@keyframes floatUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px) scale(0.96);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-
-/* === TYPOGRAPHY === */
+/* === TEXT HEADERS === */
 .heading {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
   text-align: center;
   color: var(--foreground, #111);
 }
@@ -68,9 +41,9 @@
 .subheading {
   font-size: 1rem;
   text-align: center;
-  margin-bottom: 2rem;
   opacity: 0.85;
   line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
 /* === FORM === */
@@ -99,18 +72,16 @@
   resize: vertical;
 }
 
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent, #0070f3);
+  background-color: #fff;
+}
+
 .textarea {
   min-height: 100px;
 }
-
-.input:focus,
-.textarea:focus {
-  border-color: var(--accent, #0070f3);
-  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
-  background-color: #fff;
-  transition: box-shadow 0.2s ease, background 0.2s ease;
-}
-
 
 /* === BUTTON === */
 .button {
@@ -121,12 +92,13 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s ease;
   font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .button:hover {
   background-color: #005bb5;
+  transform: translateY(-1px);
 }
 
 .button:focus {
@@ -144,8 +116,37 @@
   font-weight: 500;
   color: #007a33;
   animation: tickFade 0.5s ease-out;
-  position: relative;
   font-size: 1.1rem;
+  position: relative;
+}
+
+.confirmation::before {
+  content: '✔';
+  font-size: 2rem;
+  color: #007a33;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* === CONTACT INFO === */
+.contactInfo {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* === ANIMATIONS === */
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes tickFade {
@@ -159,41 +160,18 @@
   }
 }
 
-.confirmation::before {
-  content: '✔';
-  font-size: 2rem;
-  color: #007a33;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-/* === CONTACT INFO === */
-.contactInfo {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.5;
-}
-
-/* === MOBILE OPTIMIZATION === */
+/* === MOBILE FIRST OPTIMIZATION === */
 @media (max-width: 480px) {
   .heading {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
   }
 
   .subheading {
     font-size: 0.95rem;
-    margin-bottom: 1.25rem;
   }
 
   .form {
     gap: 1rem;
-  }
-
-  .contactSection {
-    padding: 1.25rem;
   }
 
   .button {
@@ -202,6 +180,10 @@
 
   .contactInfo {
     font-size: 0.85rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .contactSection {
+    padding: 1.25rem;
   }
 }
