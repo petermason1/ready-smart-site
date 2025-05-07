@@ -7,9 +7,8 @@ export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,67 +28,41 @@ export default function ContactPage() {
   };
 
   return (
-    <main className={styles.contactPage}>
-      <div className={styles.bgWrapper}>
-        <section className={styles.contactSection}>
-          <h1 className={styles.heading}>Let’s Connect</h1>
-          <p className={styles.subheading}>
-            Got a question or ready to upgrade your home? Fill out the form and we’ll get back to you within 1 business day.
-          </p>
+    <div className={styles.bgWrapper}>
+      <section className={styles.contactSection}>
+        <h1 className={styles.heading}>Let’s Connect</h1>
+        <p className={styles.subheading}>
+          Got a question or ready to upgrade your home? Fill out the form and we’ll get back to you within 1 business day.
+        </p>
 
-          {submitted ? (
-            <div className={styles.confirmation}>
-              ✅ Thanks! We&apos;ll be in touch soon.
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className={styles.form}>
-              <label className={styles.label}>
-                Name
-                <input
-                  type="text"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  required
-                  className={styles.input}
-                />
-              </label>
+        {submitted ? (
+          <div className={styles.confirmation}>✅ Thanks! We&apos;ll be in touch soon.</div>
+        ) : (
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <label className={styles.label}>
+              Name
+              <input type="text" name="name" value={form.name} onChange={handleChange} required className={styles.input} />
+            </label>
 
-              <label className={styles.label}>
-                Email
-                <input
-                  type="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                  className={styles.input}
-                />
-              </label>
+            <label className={styles.label}>
+              Email
+              <input type="email" name="email" value={form.email} onChange={handleChange} required className={styles.input} />
+            </label>
 
-              <label className={styles.label}>
-                Message
-                <textarea
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  required
-                  className={styles.textarea}
-                />
-              </label>
+            <label className={styles.label}>
+              Message
+              <textarea name="message" value={form.message} onChange={handleChange} required className={styles.textarea} />
+            </label>
 
-              <button type="submit" className={styles.button}>
-                Send Message
-              </button>
-            </form>
-          )}
+            <button type="submit" className={styles.button}>Send Message</button>
+          </form>
+        )}
 
-          <div className={styles.contactInfo}>
-            <p><strong>Phone:</strong> 07919 467819</p>
-            <p><strong>Location:</strong> Newcastle upon Tyne, UK</p>
-          </div>
-        </section>
-      </div>
-    </main>
+        <div className={styles.contactInfo}>
+          <p><strong>Phone:</strong> 07919 467819</p>
+          <p><strong>Location:</strong> Newcastle upon Tyne, UK</p>
+        </div>
+      </section>
+    </div>
   );
 }

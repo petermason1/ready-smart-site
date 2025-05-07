@@ -7,76 +7,31 @@
 
 html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--background, #f9f9f9);
+  color: var(--foreground, #111);
   overflow-x: hidden;
 }
 
-/* === THEME VARIABLES === */
-:root {
-  --background: #f9f9f9;
-  --foreground: #111111;
-  --accent: dodgerblue;
-}
-
-[data-theme='dark'] {
-  --background: #121212;
-  --foreground: #ffffff;
-}
-
-[data-theme='dark'] body {
-  background-image: url('/bg-dark.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-}
-
-/* === FLEX PAGE STRUCTURE === */
-/* === FLEX PAGE STRUCTURE === */
-html, body {
-  height: 100%;
-}
-
-body {
+/* === STRUCTURE === */
+#__next,
+.pageLayout {
   display: flex;
   flex-direction: column;
-  flex: 1;
-}
-
-#__next {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  min-height: 100vh;
 }
 
 .mainWrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
-
-/* === UTILITY CLASSES === */
-main {
-  padding: 2rem;
-}
-
+/* === LINKS / BUTTONS === */
 a {
   color: inherit;
   text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
 }
 
 button {
@@ -84,79 +39,9 @@ button {
   cursor: pointer;
 }
 
-/* === HERO SECTION === */
-.heroSplit {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  align-items: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, var(--accent), #003b72);
-  color: white;
-  border-radius: 1rem;
-  margin: 0 auto 4rem;
-  width: 100%;
-  max-width: 1400px;
-}
-
-.heroSplit .heroContent {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.heroSplit h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.heroSplit p {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  opacity: 0.95;
-  max-width: 600px;
-}
-
-.heroSplit .cta {
-  background: white;
-  color: var(--accent);
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  width: fit-content;
-  transition: all 0.2s ease;
-  text-decoration: none;
-}
-
-.heroSplit .cta:hover {
-  background: #f2f2f2;
-  transform: translateY(-2px);
-}
-
-.heroSplit img {
-  border-radius: 0.75rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-/* === ANIMATIONS (Optional) === */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.06); }
-  100% { transform: scale(1); }
-}
-
-.cta {
-  animation: pulse 2.5s ease-in-out infinite;
+/* === UTILITY === */
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
 }
