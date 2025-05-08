@@ -7,23 +7,23 @@ import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navRef = useRef(null);
-  const burgerRef = useRef(null); // 🔧 track burger button
+  const burgerRef = useRef(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
-  // ✅ Close menu if click happens outside nav & burger
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (e) => {
       if (
         isOpen &&
         navRef.current &&
-        !navRef.current.contains(event.target) &&
+        !navRef.current.contains(e.target) &&
         burgerRef.current &&
-        !burgerRef.current.contains(event.target)
+        !burgerRef.current.contains(e.target)
       ) {
-        setIsOpen(false);
+        closeMenu();
       }
     };
 
@@ -36,8 +36,12 @@ export default function Navbar() {
       <div className={styles.innerWrapper}>
         <div className={styles.logoWrapper}>
           <Link href="/" className={styles.branding}>
-            <Image src="/logo.png" alt="Logo" width={40} height={40} />
-            <span>Ready Smart Homes</span>
+            <div className={styles.logoTextWrapper}>
+              <div className={styles.logoPulse}>
+                <Image src="/logo.png" alt="Logo" width={40} height={40} />
+              </div>
+              <span className={styles.brandText}>Ready Smart Homes</span>
+            </div>
           </Link>
 
           <button
