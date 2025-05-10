@@ -4,6 +4,8 @@ import styles from './styles/Home.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
+
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -43,12 +45,35 @@ export default function HomePage() {
     },
   ];
 
+  <Head>
+  <title>Smart Home Setup | Ready Smart Homes</title>
+  <meta
+    name="description"
+    content="We set up Home Assistant, Alexa, and Apple HomeKit for seamless, secure smart home automation — fully configured for you."
+  />
+  <meta
+    name="keywords"
+    content="smart home installation, Home Assistant setup, Apple HomeKit, Alexa configuration, smart home Morpeth"
+  />
+  <meta property="og:title" content="Smart Home Setup | Ready Smart Homes" />
+  <meta
+    property="og:description"
+    content="Smart homes fully set up for you — Home Assistant, Alexa, and HomeKit done right."
+  />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:url" content="https://www.readysmarthomes.com" />
+  <meta name="robots" content="index, follow" />
+</Head>
+
+
   return (
     <motion.div
       className={styles.pageWrapper}
       initial="hidden"
       animate="show"
       variants={staggerContainer}
+
+      
     >
       {/* ✅ HERO SECTION */}
       <motion.section className={styles.hero} variants={fadeInUp}>
