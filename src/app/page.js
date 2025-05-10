@@ -63,6 +63,33 @@ export default function HomePage() {
   <meta property="og:image" content="/og-image.jpg" />
   <meta property="og:url" content="https://www.readysmarthomes.com" />
   <meta name="robots" content="index, follow" />
+
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Ready Smart Homes",
+  image: "https://www.readysmarthomes.com/og-image.jpg",
+  "@id": "https://www.readysmarthomes.com",
+  url: "https://www.readysmarthomes.com",
+  telephone: "+44 7919 467819", // update or remove
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Morpeth",
+    addressRegion: "Northumberland",
+    postalCode: "NE61",
+    addressCountry: "GB"
+  },
+  description: "We set up and configure Home Assistant, Alexa, and Apple HomeKit systems for seamless, secure smart home automation.",
+  areaServed: {
+    "@type": "Place",
+    name: "United Kingdom"
+  },
+  sameAs: [
+    "https://facebook.com/readysmarthomes",
+    
+  ]
+}) }} />
+
 </Head>
 
 
