@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { getAllPosts } from '@/lib/mdx';
+import { getAllPosts } from '../../lib/mdx';
+
 
 export const metadata = {
   title: 'Smart Home Blog | Ready Smart Homes',
