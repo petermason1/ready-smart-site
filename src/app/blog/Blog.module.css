@@ -39,7 +39,7 @@
 /* 👇 3 columns only if there are 6 or more cards */
 @media (min-width: 1024px) {
   .grid:has(.card:nth-child(6)) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, fr);
   }
 }
 
