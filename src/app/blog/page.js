@@ -1,34 +1,34 @@
-// app/blog/page.js
+import Link from 'next/link';
+import { getAllPosts } from '../../../lib/mdx';
 import styles from './Blog.module.css';
-import Head from 'next/head';
 
-export default function BlogPage() {
+export const metadata = {
+  title: 'Smart Home Blog | Ready Smart Homes',
+  description: 'Tips, guides, and advice on smart home automation.',
+};
+
+export default async function BlogPage() {
+  const posts = await getAllPosts(); // ✅ properly await async function
+
   return (
-    <>
-      <Head>
-        <title>Smart Home Tips & Guides | Ready Smart Homes Blog</title>
-        <meta name="description" content="Get the latest smart home tips, automation guides, and product insights from the team at Ready Smart Homes." />
-        <meta name="keywords" content="smart home blog, home automation tips, ready smart homes, Home Assistant, Alexa, Apple HomeKit" />
-        <meta property="og:title" content="Smart Home Tips & Guides | Ready Smart Homes" />
-        <meta property="og:description" content="Get the latest smart home tips, automation guides, and product insights from the team at Ready Smart Homes." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.readysmarthomes.com/blog" />
-      </Head>
+    <main className={styles.wrapper}>
+      <h1 className={styles.title}>Ready Smart Blog</h1>
+      <p className={styles.subtitle}>
+        Smart tips, automation advice, and DIY guides to upgrade your home.
+      </p>
 
-      <main className={styles.blogWrapper}>
-        <h1 className={styles.title}>Ready Smart Blog</h1>
-        <p className={styles.subtitle}>
-          Smart tips, automation advice, and DIY guides to upgrade your home.
-        </p>
+      <div className={styles.grid}>
+        {posts.map((post) => (
+          <Link key={post.slug} href={`/blog/${post.slug}`} className={styles.card}>
+            <h2>{post.title}</h2>
+            <p>{post.description}</p>
+            <span className={styles.readMore}>
+  Read more <span aria-hidden="true">→</span>
+</span>
 
-        <div className={styles.grid}>
-          {/* Placeholder cards */}
-          <div className={styles.card}>
-            <h2>Coming Soon &rarr;</h2>
-            <p>Our blog posts will go here once we are ready to publish.</p>
-          </div>
-        </div>
-      </main>
-    </>
+          </Link>
+        ))}
+      </div>
+    </main>
   );
 }
