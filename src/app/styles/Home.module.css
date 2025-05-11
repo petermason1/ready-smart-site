@@ -1,5 +1,5 @@
 .pageWrapper {
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1rem 3rem;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -121,17 +121,31 @@
   justify-items: center;
 }
 
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .card {
   background: white;
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.17);
+  width: 100%;
   max-width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   transition: transform 0.2s ease;
+}
+
+@media (min-width: 1200px) {
+  .card {
+    max-width: 380px;
+    padding: 2.5rem;
+  }
 }
 
 .card:hover {
@@ -176,6 +190,12 @@
   gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .step {
@@ -237,6 +257,12 @@
   margin: 0 auto;
 }
 
+@media (min-width: 768px) {
+  .testimonialGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .testimonialCard {
   background: #fff;
   border-radius: 16px;
@@ -273,70 +299,38 @@
   padding-left: 1.75rem;
 }
 
-/* === SMART PICKS === */
-.smartPicks {
-  background: #f0f5fc;
-  padding: 2.5rem 1rem;
-  border-radius: 16px;
-  margin-top: 3rem;
+/* === SMART PICKS PREVIEW (HOME) === */
+.smartPicksPreview {
+  padding: 2rem 1rem;
   text-align: center;
-}
-
-.smartPicksIntro {
-  font-size: 1.05rem;
-  color: #555;
-  margin-bottom: 2rem;
-}
-
-.smartPickGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  justify-items: center;
-}
-
-.smartPickCard {
-  background: white;
-  color: #111;
-  padding: 2rem;
-  border-radius: 16px;
+  background: #f9f9f9;
+  border-radius: 1rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.17);
-  text-align: center;
-  max-width: 320px;
+  margin-top: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.smartPickCard h3 {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.smartPickCard p {
-  font-size: 1rem;
+.smartPicksPreview p {
   color: #555;
+  font-size: 1rem;
   margin: 1rem 0;
 }
 
-.imageWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 120px;
-  margin-bottom: 1rem;
-}
-
-.seeAllLink {
+.smartPicksPreview .ctaSmall {
+  background: #0070f3;
+  color: #fff;
   display: inline-block;
-  margin-top: 2.5rem;
-  font-weight: 600;
-  color: #0070f3;
-  font-size: 1rem;
-  transition: opacity 0.2s ease;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease;
 }
 
-.seeAllLink:hover {
-  opacity: 0.8;
-  text-decoration: underline;
+.smartPicksPreview .ctaSmall:hover {
+  background: #005fcc;
 }
 
 /* === FOOTER CTA === */
@@ -357,33 +351,4 @@
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
-}
-
-/* === RESPONSIVE === */
-@media (min-width: 768px) {
-  .hero {
-    flex-direction: row;
-    text-align: left;
-  }
-
-  .heroContent,
-  .heroImageWrapper {
-    flex: 1;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .steps {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .testimonialGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .smartPickGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }

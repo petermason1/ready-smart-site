@@ -193,47 +193,18 @@ export default function HomePage() {
       </section>
 
       {/* ✅ SMART PICKS PREVIEW */}
-      <section className={styles.smartPicks}>
-      <h2 className={styles.sectionTitle}>Ready Smart Picks</h2>
-        <p className={styles.smartPicksIntro}>
-          Hand-picked smart home tech we trust and recommend — tested in real installs.
-        </p>
-        <div className={styles.smartPickGrid}>
-          <div className={styles.smartPickCard}>
-            <div className={styles.imageWrapper}>
-              <Image src="/products/tapo-p110.jpg" alt="TP-Link Tapo P110" width={120} height={120} />
-            </div>
-            <h3>TP-Link Tapo P110</h3>
-            <p>Reliable smart plug with energy monitoring. Works with Home Assistant and Alexa.</p>
-            <a
-              href="https://amzn.to/3F4wqqA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.ctaSmall}
-            >
-              View on Amazon
-            </a>
-          </div>
-          <div className={styles.smartPickCard}>
-            <div className={styles.imageWrapper}>
-              <Image src="/products/tapo-l530e.jpg" alt="TP-Link Tapo L530E Smart Bulb" width={120} height={120} />
-            </div>
-            <h3>Tapo L530E Smart Bulb</h3>
-            <p>Color-changing Wi-Fi bulb with Alexa and Google support — no hub needed.</p>
-            <a
-              href="https://amzn.to/3GIUoIx"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.ctaSmall}
-            >
-              View on Amazon
-            </a>
-          </div>
-        </div>
-        <Link href="/smart-picks" className={styles.seeAllLink}>
-          See all picks →
-        </Link>
-      </section>
+      <section className={styles.smartPicksPreview}>
+  <motion.h2 className={styles.sectionTitle} variants={fadeInUp}>
+    Smart Picks
+  </motion.h2>
+  <motion.p variants={fadeInUp}>
+    See our hand-picked smart tech for beginners, security, and high-tech setups.
+  </motion.p>
+  <Link href="/smart-picks" className={styles.ctaSmall}>
+    Browse Smart Picks →
+  </Link>
+</section>
+
 
       {/* ✅ FOOTER CTA – (Optional: ready to add next if needed) */}
       <section className={styles.footerCTA}>
