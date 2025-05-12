@@ -2,7 +2,8 @@
 import { getAllPosts, getPostBySlug } from '@/lib/mdx';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import styles from './Blog.module.css';
+import styles from '../Blog.module.css'; // adjust path
+
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
