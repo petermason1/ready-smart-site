@@ -3,15 +3,45 @@ title: "How to Set Up a DIY Smart Sensor"
 description: "Step-by-step guide to building your own motion and presence sensors."
 date: "2025-05-10"
 slug: "diy-smart-sensor-setup"
+published: true
+tags: ['diy', 'smart sensor', 'esp32', 'home assistant', 'presence detection']
 ---
 
-## Build It Yourself
+# How to Set Up a DIY Smart Sensor
 
-Creating your own smart sensor can save money and give you full control. This guide walks you through:
+Want to take your smart home to the next level? Building your own sensors gives you full control, better privacy, and serious flexibility. Here's how to make it happen.
 
-- Sourcing parts like the ESP32 and LD2410
-- Wiring and testing
-- Adding YAML to Home Assistant
-- Mounting it cleanly in your home
+## What You’ll Need
 
-Great for hobbyists or pros wanting deeper control.
+To get started, gather these parts:
+
+- ✅ **ESP32-S3 Mini** – the brains of the build  
+- ✅ **LD2410B or AM312** – mmWave or motion sensor  
+- ✅ **Breadboard & jump wires** – for easy prototyping  
+- ✅ **Resistors, LED (optional)** – for basic visual indicators
+
+## Step 1: Wiring It Up
+
+Start by connecting:
+
+- Power (3.3V or 5V depending on sensor)
+- Ground
+- Signal pins (GPIOs — usually D2/D3)
+- Test with the Arduino IDE or ESPHome
+
+## Step 2: Flash and Test
+
+- Use ESPHome or Arduino IDE
+- Load a YAML config or test sketch
+- Check logs to confirm detection triggers work properly
+
+## Step 3: Add to Home Assistant
+
+Once detected in ESPHome, add the sensor to your dashboard:
+
+```yaml
+binary_sensor:
+  - platform: gpio
+    pin: GPIO2
+    name: "Hallway Motion Sensor"
+    device_class: motion

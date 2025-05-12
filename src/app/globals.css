@@ -96,3 +96,27 @@ body {
     opacity: 1;
   }
 }
+
+.mdxContent h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #0070f3;
+}
+
+.mdxContent p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #222;
+}
+
+.mdxContent ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+}
+
+.mdxContent li {
+  margin-bottom: 0.5rem;
+}
+
