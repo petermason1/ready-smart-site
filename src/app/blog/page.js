@@ -1,32 +1,24 @@
+import { getAllPosts } from '@/lib/mdx';
 import Link from 'next/link';
-import { getAllPosts } from '../../../lib/mdx';
-import styles from './Blog.module.css';
-
-export const metadata = {
-  title: 'Smart Home Blog | Ready Smart Homes',
-  description: 'Tips, guides, and advice on smart home automation.',
-};
+import styles from '@/app/blog/Blog.module.css';
 
 export default async function BlogPage() {
-  const posts = await getAllPosts(); // ✅ properly await async function
+  const posts = await getAllPosts();
 
   return (
-    <main className={styles.wrapper}>
-      <h1 className={styles.title}>Ready Smart Blog</h1>
-      <p className={styles.subtitle}>
-        Smart tips, automation advice, and DIY guides to upgrade your home.
-      </p>
+    <main className={styles.blogWrapper}>
+      <h1 className={styles.title}>Smart Home Blog</h1>
+      <p className={styles.intro}>Tips, guides, and ideas to level up your smart home.</p>
 
-      <div className={styles.grid}>
+      <div className={styles.postGrid}>
         {posts.map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}`} className={styles.card}>
-            <h2>{post.title}</h2>
+          <div key={post.slug} className={styles.postCard}>
+            <h3>{post.title}</h3>
             <p>{post.description}</p>
-            <span className={styles.readMore}>
-  Read more <span aria-hidden="true">→</span>
-</span>
-
-          </Link>
+            <Link href={`/blog/${post.slug}`} className={styles.ctaSmall}>
+              Read More →
+            </Link>
+          </div>
         ))}
       </div>
     </main>

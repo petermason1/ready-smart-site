@@ -177,6 +177,44 @@
   color: #555;
 }
 
+.recentPosts {
+  padding: 4rem 1rem;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.postGrid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin: 2rem 0;
+}
+
+.postCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.postCard:hover {
+  transform: translateY(-4px);
+}
+
+.postCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.postCard p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+
 /* === HOW IT WORKS === */
 .howItWorks {
   background: #f7f9fc;
