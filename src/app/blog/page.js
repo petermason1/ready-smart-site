@@ -13,7 +13,9 @@ export default async function BlogPage() {
       <div className={styles.postGrid}>
         {posts.map((post) => (
           <div key={post.slug} className={styles.postCard}>
-            <h3>{post.title}</h3>
+            <h3>{post.title || 'Untitled'}</h3>
+<p>{post.description || 'No summary available.'}</p>
+
             <p>{post.description}</p>
             <Link href={`/blog/${post.slug}`} className={styles.ctaSmall}>
               Read More →
