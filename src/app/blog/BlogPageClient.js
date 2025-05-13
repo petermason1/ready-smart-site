@@ -16,6 +16,7 @@ export default function BlogPageClient({ posts }) {
 
   return (
     <main className={styles.blogWrapper}>
+      {/* === Hero Section === */}
       <section className={styles.hero}>
         <h1>Smart Home Blog</h1>
         <p>
@@ -23,21 +24,29 @@ export default function BlogPageClient({ posts }) {
         </p>
       </section>
 
+      {/* === Blog Post Grid === */}
       <div className={styles.postGrid}>
         {paginatedPosts.map((post) => (
-          <div key={post.slug} className={styles.postCard}>
-            <h3>{post.title || 'Untitled'}</h3>
-            <p className={styles.meta}>
-              {post.date ? new Date(post.date).toLocaleDateString('en-GB') : 'No date'}
-            </p>
-            <p>{post.description || 'No summary available.'}</p>
+          <article key={post.slug} className={styles.postCard}>
+            <span className={styles.date}>
+              {post.date
+                ? new Date(post.date).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                  })
+                : ''}
+            </span>
+            <h3>{post.title}</h3>
+            {post.description && <p>{post.description}</p>}
             <Link href={`/blog/${post.slug}`} className={styles.ctaSmall}>
               Read More →
             </Link>
-          </div>
+          </article>
         ))}
       </div>
 
+      {/* === Pagination === */}
       {totalPages > 1 && (
         <nav className={styles.pagination}>
           {currentPage > 1 && (

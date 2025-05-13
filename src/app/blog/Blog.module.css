@@ -1,12 +1,16 @@
 /* === app/blog/Blog.module.css === */
 
+/* Container for both list and post views */
 .blogWrapper {
   max-width: 1100px;
   margin: 0 auto;
   padding: clamp(1.5rem, 4vw, 3rem) 1rem;
   scroll-behavior: smooth;
+  font-family: system-ui, sans-serif;
+  color: #333;
 }
 
+/* === List View Styles === */
 .title {
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   text-align: center;
@@ -60,14 +64,60 @@
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.17);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.22);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.card .date {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: -0.25rem;
+}
+
+.card .readMore {
+  margin-top: auto;
+  align-self: flex-start;
+  font-weight: 600;
+  background: #0070f3;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.card .readMore:hover {
+  background: #005ad6;
 }
 
 .postCard {
@@ -80,16 +130,15 @@
   flex-direction: column;
   justify-content: space-between;
   animation: fadeInUp 0.4s ease both;
-  opacity: 1;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
   position: relative;
   z-index: 1;
 }
 
 .postCard:hover {
-  opacity: 0.9;
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0.95;
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
   background-color: #f9fafb;
 }
 
@@ -101,10 +150,10 @@
   line-height: 1.35;
   max-height: 3.2em;
   overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  line-clamp: 2;          /* Standard property */
+  -webkit-line-clamp: 2;  /* Vendor-prefixed fallback */
   -webkit-box-orient: vertical;
+  display: -webkit-box;
 }
 
 .postCard p {
@@ -115,10 +164,89 @@
   flex-grow: 1;
   max-height: 4.5em;
   overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  line-clamp: 3;          /* Standard property */
+  -webkit-line-clamp: 3;  /* Vendor-prefixed fallback */
   -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+/* === Slug Page Styles === */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mdxContent {
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+.mdxContent h2 {
+  font-size: 1.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.mdxContent h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.mdxContent p {
+  margin-bottom: 1em;
+}
+
+.mdxContent img {
+  display: block;
+  max-width: 100%;
+  margin: 1.5rem auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.mdxContent blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1rem;
+  color: #555;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+.mdxContent pre {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.mdxContent code {
+  background: #eee;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.mdxContent a {
+  color: #0070f3;
+  text-decoration: underline;
+}
+
+.mdxContent a:hover {
+  text-decoration: none;
+}
+
+/* Date styling for list and detail */
+.date {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: -0.25rem;
+  display: inline-block;
+  font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 .ctaSmall {
