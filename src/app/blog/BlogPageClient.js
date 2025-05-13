@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import styles from './Blog.module.css';
 
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 12;
 
 export default function BlogPageClient({ posts }) {
   const searchParams = useSearchParams();
