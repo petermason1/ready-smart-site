@@ -15,6 +15,7 @@ export default function Footer() {
 
         <nav className={styles.footerNav}>
           <Link href="/">Home</Link>
+          <Link href="/pricing">Pricing</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/smart-picks">Smart Picks</Link>

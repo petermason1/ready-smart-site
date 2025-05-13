@@ -1,0 +1,228 @@
+.pageWrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+  
+  
+  .hero {
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin-bottom: 1rem;
+    color: #111;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .packages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 1rem 0.75rem; /* ⬅ reduced padding */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.17);
+    transition: transform 0.2s ease;
+    flex: 1 1 300px;
+    max-width: 330px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* ⬅ slightly tighter spacing */
+    text-align: center;
+    align-items: center;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #111;
+  }
+  
+  .price {
+    color: #0070f3;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .features,
+  .addonsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .features li,
+  .addonsList li {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  .addons {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+  }
+  
+  .addons h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+  }
+  
+  .offer {
+    background: #e6f7ff;
+    border-left: 4px solid #0070f3;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 700px;
+    font-size: 1rem;
+    color: #111;
+    line-height: 1.6;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .custom {
+    text-align: center;
+    max-width: 700px;
+    margin: 2rem auto 0;
+    padding: 2rem 1.5rem;
+    background: #f0f4ff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .custom h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    color: #111;
+  }
+  
+  .custom p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+  }
+  
+  .customBtn {
+    display: inline-block;
+    background-color: #0070f3;
+    color: #fff;
+    padding: 0.65rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  
+  .customBtn:hover {
+    background-color: #005ac2;
+  }
+  
+  .cta {
+    text-align: center;
+  }
+  
+  .cta h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .ctaBtn {
+    background: #0070f3;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: background 0.2s ease;
+  }
+  
+  .ctaBtn:hover {
+    background: #005ac2;
+  }
+  
+  /* === MOBILE === */
+  @media (max-width: 768px) {
+    .packages {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      width: 100%;
+      padding: 0 1rem;
+    }
+  
+    .card {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+      box-sizing: border-box;
+    }
+    
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    .price {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    .features li {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+  
+    .hero p {
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+  
+    .addons,
+    .offer,
+    .custom {
+      padding: 1.5rem 1rem;
+    }
+  }
+  

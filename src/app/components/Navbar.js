@@ -62,6 +62,7 @@ export default function Navbar() {
           className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}
         >
           <Link href="/" onClick={closeMenu}>Home</Link>
+          <Link href="/pricing">Pricing</Link>
           <Link href="/contact" onClick={closeMenu}>Contact</Link>
           <Link href="/blog" onClick={closeMenu}>Blog</Link>
           <Link href="/smart-picks" onClick={closeMenu}>Smart Picks</Link>
