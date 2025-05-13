@@ -14,6 +14,7 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  // ✅ Close mobile nav on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -31,8 +32,20 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
 
+  // ✅ Apply 'scrolled' class on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+    };
+
+    handleScroll(); // check on initial load
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className={styles.navbar}>
+    <header className={`${styles.navbar} ${scrolled ? 'scrolled' : ''}`}>
       <div className={styles.innerWrapper}>
         <div className={styles.logoWrapper}>
           <Link href="/" className={styles.branding}>
@@ -62,7 +75,7 @@ export default function Navbar() {
           className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}
         >
           <Link href="/" onClick={closeMenu}>Home</Link>
-          <Link href="/pricing">Pricing</Link>
+          <Link href="/pricing" onClick={closeMenu}>Pricing</Link>
           <Link href="/contact" onClick={closeMenu}>Contact</Link>
           <Link href="/blog" onClick={closeMenu}>Blog</Link>
           <Link href="/smart-picks" onClick={closeMenu}>Smart Picks</Link>

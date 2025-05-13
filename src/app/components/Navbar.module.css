@@ -3,12 +3,15 @@
   top: 0;
   z-index: 1000;
   width: 100%;
-  background: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  padding: 1rem 0;
+  padding: 1.25rem 0;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #e2e8f0;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
+  
 .innerWrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -113,19 +116,33 @@
 .navLinks a {
   font-weight: 500;
   color: #222;
-  transition: color 0.2s ease;
+  padding: 0.25rem 0;
+  position: relative;
 }
 
-.navLinks a:hover {
-  color: var(--accent, #0070f3);
+.navLinks a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent, #0070f3);
+  transition: width 0.3s ease;
 }
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
 
 .scrolled {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  background: #ffffffee;
-  backdrop-filter: blur(4px);
-  transition: box-shadow 0.3s ease, background 0.3s ease;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transform: translateY(0);
 }
+
 
 
 /* Burger Menu */

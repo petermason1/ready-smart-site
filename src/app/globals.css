@@ -22,6 +22,15 @@ html, body {
   min-height: 100vh;
 }
 
+.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
 .mainWrapper {
   flex: 1;
   display: flex;
@@ -52,12 +61,6 @@ button {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-}
-
-.mdxContent h2 {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  color: #0070f3;
 }
 
 .mdxContent ul {
