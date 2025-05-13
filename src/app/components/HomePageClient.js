@@ -40,9 +40,13 @@ export default function HomePageClient({ latestPost, recentPosts }) {
   ];
 
   return (
-    <motion.div className={styles.pageWrapper} initial="hidden" animate="show" variants={staggerContainer}>
-      
-      {/* ✅ HERO SECTION */}
+    <motion.div
+      className={styles.pageWrapper}
+      initial="hidden"
+      animate="show"
+      variants={staggerContainer}
+    >
+      {/* HERO SECTION */}
       <motion.section className={styles.hero} variants={fadeInUp}>
         <div className={styles.heroContent}>
           <h1>Smart Homes. Fully Set Up for You.</h1>
@@ -66,7 +70,7 @@ export default function HomePageClient({ latestPost, recentPosts }) {
         </div>
       </motion.section>
 
-      {/* ✅ SERVICE GRID */}
+      {/* SERVICE GRID */}
       <section className={styles.gridSection}>
         <motion.h2 variants={fadeInUp} className={styles.sectionTitle}>
           What We Configure
@@ -93,47 +97,46 @@ export default function HomePageClient({ latestPost, recentPosts }) {
         </motion.div>
       </section>
 
-      {/* ✅ BLOG PREVIEW */}
+      {/* BLOG PREVIEW */}
       {latestPost && (
         <section className={styles.smartPicksPreview}>
-          <motion.h2 className={styles.sectionTitle} variants={fadeInUp}>
+          <motion.h2 variants={fadeInUp} className={styles.sectionTitle}>
             Latest Blog Post
           </motion.h2>
-          <motion.h3 variants={fadeInUp}>{latestPost.title}</motion.h3>
-          <motion.p variants={fadeInUp}>{latestPost.description}</motion.p>
-          <Link href={`/blog/${latestPost.slug}`} className={styles.ctaSmall}>
-            Read More →
+          <motion.div variants={fadeInUp} className={styles.postCard}>
+            <h3>{latestPost.title}</h3>
+            <p>{latestPost.description}</p>
+            <Link href={`/blog/${latestPost.slug}`} className={styles.ctaSmall}>
+              Read More →
+            </Link>
+          </motion.div>
+        </section>
+      )}
+
+      {/* RECENT POSTS */}
+      {recentPosts?.length > 0 && (
+        <section className={styles.recentPosts}>
+          <motion.h2 className={styles.sectionTitle} variants={fadeInUp}>
+            Recent Blog Posts
+          </motion.h2>
+          <motion.div className={styles.postGrid} variants={staggerContainer} initial="hidden" whileInView="show">
+            {recentPosts.map((post) => (
+              <motion.article key={post.slug} className={styles.postCard} variants={fadeInUp}>
+                <h3>{post.title}</h3>
+                <p>{post.description}</p>
+                <Link href={`/blog/${post.slug}`} className={styles.ctaSmall}>
+                  Read More →
+                </Link>
+              </motion.article>
+            ))}
+          </motion.div>
+          <Link href="/blog" className={styles.cta}>
+            View All Posts →
           </Link>
         </section>
       )}
 
-      {/* ✅ RECENT POSTS SECTION */}
-      {recentPosts && recentPosts.length > 0 && (
-       <section className={styles.recentPosts}>
-       <motion.h2 className={styles.sectionTitle} variants={fadeInUp}>
-         Recent Blog Posts
-       </motion.h2>
-     
-       <div className={styles.postGrid}>
-         {recentPosts.map((post) => (
-           <motion.div key={post.slug} className={styles.postCard} variants={fadeInUp}>
-             <h3>{post.title}</h3>
-             <p>{post.description}</p>
-             <Link href={`/blog/${post.slug}`} className={styles.ctaSmall}>
-               Read More →
-             </Link>
-           </motion.div>
-         ))}
-       </div>
-     
-       <Link href="/blog" className={styles.cta}>
-         View All Posts →
-       </Link>
-     </section>
-     
-      )}
-
-      {/* ✅ HOW IT WORKS */}
+      {/* HOW IT WORKS */}
       <section className={styles.howItWorks}>
         <h2 className={styles.sectionTitle}>How It Works</h2>
         <div className={styles.steps}>
@@ -145,7 +148,7 @@ export default function HomePageClient({ latestPost, recentPosts }) {
           <div className={styles.step}>
             <span>2</span>
             <h3>We Install or Guide</h3>
-            <p>We visit in person or work remotely to set up Home Assistant, Alexa, or HomeKit — and keep it simple.</p>
+            <p>We visit in person or work remotely to set up your system — and keep it simple.</p>
           </div>
           <div className={styles.step}>
             <span>3</span>
@@ -155,7 +158,7 @@ export default function HomePageClient({ latestPost, recentPosts }) {
         </div>
       </section>
 
-      {/* ✅ TESTIMONIALS */}
+      {/* TESTIMONIALS */}
       <section className={styles.testimonials}>
         <h2 className={styles.sectionTitle}>What Our Customers Say</h2>
         <div className={styles.testimonialGrid}>
@@ -170,11 +173,13 @@ export default function HomePageClient({ latestPost, recentPosts }) {
         </div>
       </section>
 
-      {/* ✅ FOOTER CTA */}
+      {/* FOOTER CTA */}
       <section className={styles.footerCTA}>
         <h2 className={styles.sectionTitle}>Need Help With Your Smart Home?</h2>
         <p>We’ll help you set up, automate, and simplify your home — no hassle, no confusion.</p>
-        <Link href="/contact" className={styles.cta}>Get Free Setup Advice</Link>
+        <Link href="/contact" className={styles.cta}>
+          Get Free Setup Advice
+        </Link>
       </section>
     </motion.div>
   );
