@@ -1,8 +1,9 @@
-// app/layout.js
+// src/app/layout.js
+
 import './globals.css';
-import Script from 'next/script';            // ← import Next’s Script helper
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Script from 'next/script';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Ready Smart Homes | Hassle-Free Smart Home Installation',
@@ -38,7 +39,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VHE1WE56M8"
           strategy="afterInteractive"
@@ -52,8 +52,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-     
-      <body>
+      <body id="top">
         <Navbar />
         {children}
         <Footer />

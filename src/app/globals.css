@@ -1,3 +1,22 @@
+/* === CSS VARIABLES === */
+:root {
+  --primary: #0070f3;
+  --primary-hover: #005bb5;
+  --accent: #61dafb;
+
+  --text: #111;
+  --text-muted: #555;
+  --heading: #0070f3;
+  --background: #f9f9f9;
+  --card-bg: #fff;
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.17);
+
+  --radius: 16px;
+  --transition: 0.3s ease;
+}
+
 /* === RESET & BASE === */
 * {
   box-sizing: border-box;
@@ -5,12 +24,13 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: var(--background, #f9f9f9);
-  color: var(--foreground, #111);
+  background-color: var(--background);
+  color: var(--text);
   overflow-x: hidden;
 }
 
@@ -22,25 +42,39 @@ html, body {
   min-height: 100vh;
 }
 
-.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  transform: translateY(0);
-  opacity: 1;
-}
-
-
 .mainWrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* === LINKS / BUTTONS === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+
+
+/* === SCROLLED NAV === */
+.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* === LINKS & BUTTONS === */
 a {
   color: inherit;
   text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+a:hover {
+  opacity: 0.9;
 }
 
 button {
@@ -49,46 +83,18 @@ button {
 }
 
 .button:hover {
-  background-color: #005bb5 !important;
+  background-color: var(--primary-hover) !important;
   color: white !important;
 }
 
-
-.mdxContent {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #222;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.mdxContent ul {
-  list-style: disc;
-  padding-left: 1.5rem;
-}
-
-.mdxContent strong {
-  font-weight: 600;
-}
-
-.mdxContent em {
-  color: #555;
-}
-
-.mdxContent a {
-  color: #0070f3;
-  text-decoration: underline;
-}
-
-
-
-/* === UTILITY === */
+/* === IMAGES === */
 img {
   max-width: 100%;
-  display: block;
   height: auto;
+  display: block;
 }
+
+/* === FADE-IN BODY === */
 body {
   opacity: 0;
   animation: fadeIn 0.3s ease forwards;
@@ -100,29 +106,53 @@ body {
   }
 }
 
+/* === MDX / CONTENT STYLING === */
+.mdxContent {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 .mdxContent h2 {
   font-size: 1.5rem;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-  color: #0070f3;
+  color: var(--heading);
 }
 
 .mdxContent p {
   margin-bottom: 1rem;
   line-height: 1.6;
-  color: #222;
+  color: var(--text);
 }
 
 .mdxContent ul {
+  list-style: disc;
   margin-left: 1.5rem;
   margin-bottom: 1rem;
-  list-style-type: disc;
 }
 
 .mdxContent li {
   margin-bottom: 0.5rem;
 }
 
+.mdxContent strong {
+  font-weight: 600;
+}
+
+.mdxContent em {
+  color: var(--text-muted);
+}
+
+.mdxContent a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* === CUSTOM LISTS === */
 ul.features,
 ul.addonsList {
   list-style: none;
