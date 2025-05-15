@@ -2,7 +2,8 @@
 :root {
   --primary: #0070f3;
   --primary-hover: #005bb5;
-  --accent: #61dafb;
+  --accent: #0070f3;
+
 
   --text: #111;
   --text-muted: #555;

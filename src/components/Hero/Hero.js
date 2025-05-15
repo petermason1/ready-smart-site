@@ -12,8 +12,14 @@ const fadeInUp = {
 
 export default function Hero() {
   return (
-    <motion.section className={styles.hero} initial="hidden" animate="show" variants={fadeInUp}>
+    <motion.section
+      className={styles.hero}
+      initial="hidden"
+      animate="show"
+      variants={fadeInUp}
+    >
       <div className={styles.heroContainer}>
+        {/* === Text Content === */}
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
             Make Your Home Smarter, Safer & Simpler — Without Lifting a Finger
@@ -27,10 +33,11 @@ export default function Hero() {
           </Link>
         </div>
 
+        {/* === Image === */}
         <div className={styles.heroImageWrapper}>
           <Image
             src="/smart-home-preview.png"
-            alt="Smart Home Setup"
+            alt="Preview of a smart home setup"
             width={600}
             height={400}
             className={styles.heroImage}

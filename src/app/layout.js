@@ -51,6 +51,8 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-VHE1WE56M8');
           `}
         </Script>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
       </head>
       <body id="top">
         <Navbar />

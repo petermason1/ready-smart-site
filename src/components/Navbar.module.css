@@ -6,12 +6,9 @@
   padding: 1.25rem 0;
   background-color: #f4f4f4;
   border-bottom: 1px solid #e2e8f0;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-  
 .innerWrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -47,6 +44,8 @@
   height: 40px;
   display: grid;
   place-items: center;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .logoPulse::before {
@@ -63,6 +62,7 @@
 .logoPulse img {
   position: relative;
   z-index: 1;
+  border-radius: 50%;
 }
 
 .brandText {
@@ -81,6 +81,7 @@
   text-shadow: 0 0 8px rgba(0, 112, 243, 0.6);
 }
 
+/* Animations */
 @keyframes shimmer {
   0% {
     background-position: 0% center;
@@ -105,7 +106,7 @@
   }
 }
 
-/* Nav Links */
+/* Nav links */
 .navLinks {
   display: flex;
   gap: 1.5rem;
@@ -118,6 +119,7 @@
   color: #222;
   padding: 0.25rem 0;
   position: relative;
+  transition: color 0.3s ease;
 }
 
 .navLinks a::after {
@@ -135,17 +137,27 @@
   width: 100%;
 }
 
-
-.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  transform: translateY(0);
+.active {
+  color: var(--primary);
+  font-weight: 600;
 }
 
+.ctaLink {
+  background: var(--primary);
+  color: white !important;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  margin-left: 1rem;
+}
 
+/* Scroll effect */
+.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+}
 
-/* Burger Menu */
+/* Burger */
 .burger {
   display: none;
   flex-direction: column;
@@ -174,7 +186,7 @@
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Responsive Mobile Nav */
+/* Mobile nav */
 @media (max-width: 768px) {
   .burger {
     display: flex;
@@ -185,7 +197,7 @@
     position: absolute;
     top: 100%;
     right: 1rem;
-    background: #fff;
+    background: white;
     border-radius: 12px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
     padding: 1rem 1.25rem;

@@ -1,13 +1,6 @@
-/* === PAGE STRUCTURE === */
-.contactPage {
-  display: flex;
-  flex-direction: column;
-  min-height: 100dvh;
-}
-
-/* === BACKGROUND WRAPPER === */
+/* === PAGE WRAPPER === */
 .bgWrapper {
-  flex: 1;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,35 +10,31 @@
 
 /* === CONTACT CARD === */
 .contactSection {
-  background: white;
-  border-radius: 16px;
+  background: #fff;
+  border-radius: 12px;
   padding: 2rem;
   width: 100%;
-  max-width: 640px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  max-width: 620px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   animation: floatUp 0.6s ease-out both;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
-
-
-/* === TEXT HEADERS === */
+/* === HEADINGS === */
 .heading {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 0.25rem;
   text-align: center;
-  color: var(--foreground, #111);
+  color: #111;
 }
 
 .subheading {
   font-size: 1rem;
   text-align: center;
-  opacity: 0.85;
+  color: #555;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
 }
 
 /* === FORM === */
@@ -56,10 +45,10 @@
 }
 
 .label {
-  display: flex;
-  flex-direction: column;
   font-weight: 500;
   font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .input,
@@ -69,9 +58,9 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   background: #f9f9f9;
-  color: #222;
   font-size: 1rem;
-  resize: vertical;
+  color: #222;
+  transition: border 0.3s ease, background 0.3s ease;
 }
 
 .input:focus,
@@ -83,6 +72,7 @@
 
 .textarea {
   min-height: 100px;
+  resize: vertical;
 }
 
 /* === BUTTON === */
@@ -95,39 +85,25 @@
   border-radius: 6px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .button:hover {
-  background-color: #005bb5;
-  transform: translateY(-1px);
-}
-
-.button:focus {
-  outline: 2px solid var(--accent, #0070f3);
-  outline-offset: 2px;
+  background-color: #005ac2;
+  transform: translateY(-2px);
 }
 
 /* === CONFIRMATION === */
 .confirmation {
   text-align: center;
-  padding: 2rem 1rem;
   background: #e6fff0;
   border: 1px solid #b3ffcc;
   border-radius: 8px;
+  padding: 1.5rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: #007a33;
   animation: tickFade 0.5s ease-out;
-  font-size: 1.1rem;
-  position: relative;
-}
-
-.confirmation::before {
-  content: '✔';
-  font-size: 2rem;
-  color: #007a33;
-  display: block;
-  margin-bottom: 0.5rem;
 }
 
 /* === CONTACT INFO === */
@@ -135,7 +111,7 @@
   margin-top: 1rem;
   text-align: center;
   font-size: 0.95rem;
-  color: #444;
+  color: #555;
   line-height: 1.5;
 }
 
@@ -143,37 +119,37 @@
 @keyframes floatUp {
   from {
     opacity: 0;
-    transform: translateY(40px) scale(0.98);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
 @keyframes tickFade {
   from {
     opacity: 0;
-    transform: scale(0.9) rotate(-5deg);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
-    transform: scale(1) rotate(0);
+    transform: scale(1);
   }
 }
 
-/* === MOBILE FIRST OPTIMIZATION === */
+/* === MOBILE OPTIMIZATION === */
 @media (max-width: 480px) {
+  .contactSection {
+    padding: 1.5rem;
+  }
+
   .heading {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .subheading {
     font-size: 0.95rem;
-  }
-
-  .form {
-    gap: 1rem;
   }
 
   .button {
@@ -182,10 +158,5 @@
 
   .contactInfo {
     font-size: 0.85rem;
-    margin-top: 1rem;
-  }
-
-  .contactSection {
-    padding: 1.25rem;
   }
 }
