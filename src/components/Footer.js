@@ -25,9 +25,10 @@ export default function Footer() {
         </nav>
 
         {/* Mobile Only – Back to Top */}
-        <a href="#top" className={styles.backToTop}>
-          ↑ Back to Top
-        </a>
+        <Link href="#top" className={styles.backToTop}>
+        ↑ Back to Top
+        </Link>  
+
 
         {/* Social Icons */}
         <div className={styles.social}>
