@@ -1,15 +1,25 @@
 .hero {
-  padding-block: 2rem 1.5rem;
+  padding-block: 1.5rem 1.5rem;
   background: var(--background);
 }
 
+.urgencyBanner {
+  background-color: #fff8d1;
+  color: #222;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
 
 .heroContainer {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   text-align: center;
-  gap: 1.75rem;
+  gap: 1.25rem;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
@@ -20,45 +30,10 @@
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 }
 
-.heroSubtext {
-  font-size: 0.95rem;
-  color: #666;
-  text-align: center;
-  margin-top: 0.5rem;
-}
-
-.heroLocation {
-  font-size: 0.95rem;
-  color: #555;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
-  justify-content: center;
-}
-
-@media (min-width: 768px) {
-  .heroLocation {
-    justify-content: flex-start;
-  }
-}
-
-.urgencyBanner {
-  background-color: #fff8d1;
-  color: #222;
-  font-weight: 600;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-/* === TEXT + CTA === */
 .heroContent {
   max-width: 550px;
   order: 2;
@@ -71,30 +46,45 @@
 }
 
 .heroTitle {
-  font-size: clamp(1.8rem, 6vw, 2.75rem);
+  font-size: clamp(1.75rem, 5.5vw, 2.5rem);
   font-weight: 700;
   line-height: 1.2;
   color: var(--text);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .heroDescription {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
   max-width: 600px;
   margin-inline: auto;
 }
 
-/* === CTA === */
+.heroLocation {
+  font-size: 0.95rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .heroLocation {
+    justify-content: flex-start;
+  }
+}
+
 .cta {
   display: inline-block;
   background-color: var(--primary);
   color: #fff;
   font-weight: 600;
   font-size: 1rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.7rem 1.4rem;
   border-radius: var(--radius);
   text-decoration: none;
   transition: background var(--transition);
