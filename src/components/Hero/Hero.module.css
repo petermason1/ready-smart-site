@@ -1,7 +1,8 @@
 .hero {
-  padding-block: 2.5rem 2rem;
+  padding-block: 2rem 1.5rem;
   background: var(--background);
 }
+
 
 .heroContainer {
   display: flex;
@@ -12,7 +13,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   justify-content: center;
 }
 
@@ -46,8 +46,6 @@
     justify-content: flex-start;
   }
 }
-
-
 
 .urgencyBanner {
   background-color: #fff8d1;
@@ -59,7 +57,6 @@
   margin-bottom: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
-
 
 /* === TEXT + CTA === */
 .heroContent {
@@ -85,7 +82,7 @@
   font-size: 1.05rem;
   color: var(--text-muted);
   line-height: 1.6;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
   max-width: 600px;
   margin-inline: auto;
 }
