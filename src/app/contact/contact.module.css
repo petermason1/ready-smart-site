@@ -1,28 +1,23 @@
-/* === PAGE WRAPPER === */
 .bgWrapper {
-  min-height: 100vh;
+  padding: 3rem 1rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 2rem 1rem;
   background: linear-gradient(to bottom right, #f0f8ff, #ffffff);
 }
 
-/* === CONTACT CARD === */
 .contactSection {
+  width: 100%;
+  max-width: 620px;
   background: #fff;
   border-radius: 12px;
   padding: 2rem;
-  width: 100%;
-  max-width: 620px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  animation: floatUp 0.6s ease-out both;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* === HEADINGS === */
+/* HEADINGS */
 .heading {
   font-size: 2rem;
   font-weight: 700;
@@ -37,7 +32,7 @@
   line-height: 1.6;
 }
 
-/* === FORM === */
+/* FORM */
 .form {
   display: flex;
   flex-direction: column;
@@ -75,7 +70,33 @@
   resize: vertical;
 }
 
-/* === BUTTON === */
+/* PHONE */
+.phoneNumber {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 0.5rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.phoneNumber:hover {
+  text-decoration: underline;
+}
+
+/* CONFIRMATION */
+.confirmation {
+  text-align: center;
+  background: #e6fff0;
+  border: 1px solid #b3ffcc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #007a33;
+}
+
+/* BUTTON */
 .button {
   padding: 0.75rem 1.25rem;
   background-color: var(--accent, #0070f3);
@@ -93,55 +114,20 @@
   transform: translateY(-2px);
 }
 
-/* === CONFIRMATION === */
-.confirmation {
-  text-align: center;
-  background: #e6fff0;
-  border: 1px solid #b3ffcc;
-  border-radius: 8px;
-  padding: 1.5rem;
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #007a33;
-  animation: tickFade 0.5s ease-out;
-}
-
-/* === CONTACT INFO === */
+/* CONTACT INFO */
 .contactInfo {
-  margin-top: 1rem;
   text-align: center;
   font-size: 0.95rem;
   color: #555;
   line-height: 1.5;
 }
 
-/* === ANIMATIONS === */
-@keyframes floatUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes tickFade {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* === MOBILE OPTIMIZATION === */
+/* MOBILE */
 @media (max-width: 480px) {
   .contactSection {
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .heading {
@@ -158,5 +144,9 @@
 
   .contactInfo {
     font-size: 0.85rem;
+  }
+
+  .phoneNumber {
+    font-size: 1.05rem;
   }
 }

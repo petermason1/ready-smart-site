@@ -4,6 +4,8 @@ import './globals.css';
 import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
+
 
 export const metadata = {
   title: 'Ready Smart Homes | Hassle-Free Smart Home Installation',
@@ -54,11 +56,15 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 
       </head>
-      <body id="top">
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+     <body>
+  <div id="top">
+    <Navbar />
+    {children}
+    <Footer />
+    <ScrollToTopButton />  {/* ← add it after Footer */}
+  </div>
+</body>
+
     </html>
   );
 }

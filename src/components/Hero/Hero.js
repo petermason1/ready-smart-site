@@ -18,18 +18,30 @@ export default function Hero() {
       animate="show"
       variants={fadeInUp}
     >
+      {/* === Urgency Banner === */}
+      <div className={styles.urgencyBanner}>
+        🎉 Today Only: Free Smart Home Help — Book Now for Local Setup Advice
+      </div>
+
       <div className={styles.heroContainer}>
         {/* === Text Content === */}
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
-            Make Your Home Smarter, Safer & Simpler — Without Lifting a Finger
+            Smart Home Setup Without the Stress
           </h1>
+
           <p className={styles.heroDescription}>
-            We install smart plugs, lights, and sensors — all fully set up and working with your phone or Alexa.
-            No jargon, no hassle, just a smarter home for £299.
+            We install smart plugs, lights, sensors, and automations — all fully
+            connected with Alexa, Apple, or your phone. No confusion, no tech
+            overwhelm — just a smarter home from £299.
           </p>
+
+          <div className={styles.heroLocation}>
+            <span>📍 Smart home setup based in Morpeth — covering the whole North East.</span>
+          </div>
+
           <Link href="/contact" className={styles.cta}>
-            Book Your Free Setup Call
+            Get Free Advice Today
           </Link>
         </div>
 

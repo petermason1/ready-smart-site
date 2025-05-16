@@ -47,7 +47,7 @@ export default function Navbar() {
     { name: 'Contact', href: '/contact' },
     { name: 'Blog', href: '/blog' },
     { name: 'Smart Picks', href: '/smart-picks' },
-    // { name: 'Book Now', href: '/contact', cta: true },
+    { name: 'Get Free Advice', href: '/contact', cta: true }, // CTA styled
   ];
 
   return (
@@ -83,13 +83,17 @@ export default function Navbar() {
           className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}
           role="navigation"
         >
-          {navLinks.map(({ name, href, cta }) => (
+          {navLinks.map(({ name, href, cta }, index) => (
             <Link
               key={name}
               href={href}
               prefetch={false}
               onClick={closeMenu}
-              className={`${pathname === href ? styles.active : ''} ${cta ? styles.ctaLink : ''}`}
+              className={`
+                ${pathname === href ? styles.active : ''}
+                ${cta ? styles.ctaLink : ''}
+                ${index === navLinks.length - 1 ? styles.finalLink : ''}
+              `}
             >
               {name}
             </Link>

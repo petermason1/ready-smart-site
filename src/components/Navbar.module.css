@@ -1,3 +1,4 @@
+/* === NAVBAR BASE === */
 .navbar {
   position: sticky;
   top: 0;
@@ -81,7 +82,7 @@
   text-shadow: 0 0 8px rgba(0, 112, 243, 0.6);
 }
 
-/* Animations */
+/* === ANIMATIONS === */
 @keyframes shimmer {
   0% {
     background-position: 0% center;
@@ -106,7 +107,7 @@
   }
 }
 
-/* Nav links */
+/* === NAV LINKS === */
 .navLinks {
   display: flex;
   gap: 1.5rem;
@@ -142,22 +143,35 @@
   font-weight: 600;
 }
 
+/* CTA Link (used in nav) */
 .ctaLink {
-  background: var(--primary);
+  background: #007aff;
   color: white !important;
-  padding: 0.4rem 0.9rem;
+  padding: 0.45rem 1rem;
   border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
   margin-left: 1rem;
+  transition: background 0.3s ease;
+  white-space: nowrap;
 }
 
-/* Scroll effect */
+.ctaLink:hover {
+  background: #005fcc;
+}
+
+.ctaLink::after {
+  display: none;
+}
+
+/* Scroll styling */
 .scrolled {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(10px);
 }
 
-/* Burger */
+/* === BURGER MENU === */
 .burger {
   display: none;
   flex-direction: column;
@@ -186,7 +200,7 @@
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Mobile nav */
+/* === MOBILE NAV === */
 @media (max-width: 768px) {
   .burger {
     display: flex;
@@ -223,5 +237,18 @@
 
   .navLinks a:last-child {
     border-bottom: none;
+  }
+
+  .navLinks a.ctaLink {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    background: #007aff;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-weight: 600;
   }
 }

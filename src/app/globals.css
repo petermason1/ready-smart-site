@@ -4,7 +4,6 @@
   --primary-hover: #005bb5;
   --accent: #0070f3;
 
-
   --text: #111;
   --text-muted: #555;
   --heading: #0070f3;
@@ -23,6 +22,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* === GLOBAL FIX === */
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -55,8 +59,6 @@ body {
   padding: 0 1rem;
   width: 100%;
 }
-
-
 
 /* === SCROLLED NAV === */
 .scrolled {

@@ -12,6 +12,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
@@ -22,6 +23,43 @@
     gap: 2.5rem;
   }
 }
+
+.heroSubtext {
+  font-size: 0.95rem;
+  color: #666;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.heroLocation {
+  font-size: 0.95rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .heroLocation {
+    justify-content: flex-start;
+  }
+}
+
+
+
+.urgencyBanner {
+  background-color: #fff8d1;
+  color: #222;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 
 /* === TEXT + CTA === */
 .heroContent {

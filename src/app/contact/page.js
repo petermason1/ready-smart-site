@@ -59,9 +59,13 @@ export default function ContactPage() {
         )}
 
         <div className={styles.contactInfo}>
-          <p><strong>Phone:</strong> 07919 467819</p>
-          <p><strong>Location:</strong> Newcastle upon Tyne, UK</p>
+     <p className={styles.contactInfo}>
+  Based in Morpeth, serving across the North East.<br />
+  <a href="tel:07919467819" className={styles.phoneNumber}>07919 467 819</a>
+</p>
+
         </div>
+
       </section>
     </div>
   );

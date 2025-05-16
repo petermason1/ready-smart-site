@@ -6,7 +6,7 @@ import ServiceGrid from '@/components/ServiceGrid/ServiceGrid';
 import BlogPreview from '@/components/BlogPreview/BlogPreview';
 import RecentPosts from '@/components/RecentPosts/RecentPosts';
 import HowItWorks from '@/components/HowItWorks/HowItWorks';
-import Testimonials from '@/components/Testimonials/Testimonials';
+import Testimonials from '@/components/Testimonials/TestimonialCarousel';
 import FooterCTA from '@/components/FooterCTA/FooterCTA';
 
 
