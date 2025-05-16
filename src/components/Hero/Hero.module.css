@@ -1,12 +1,7 @@
 .hero {
-  min-height: 70svh;
-  padding-block: 2rem;
-  display: flex;
-  align-items: top;
-  justify-content: center;
-  flex-direction: column;
+  padding-block: 1.5rem 1.5rem;
+  background: var(--background);
 }
-
 
 .urgencyBanner {
   background-color: #fff8d1;
