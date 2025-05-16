@@ -1,193 +1,138 @@
-/* === app/blog/Blog.module.css === */
+/* === Blog.module.css === */
 
-/* Container for both list and post views */
+/* === WRAPPER === */
 .blogWrapper {
   max-width: 1100px;
   margin: 0 auto;
-  padding: clamp(1.5rem, 4vw, 3rem) 1rem;
+  padding: clamp(2rem, 5vw, 3.5rem) 1rem;
   scroll-behavior: smooth;
   font-family: system-ui, sans-serif;
   color: #333;
 }
 
-/* === List View Styles === */
-.title {
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
+/* === HERO SECTION === */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-bottom: 0.5rem;
-  color: #111;
-}
-
-.intro {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 2rem;
-  max-width: 700px;
+  padding: 0 1rem 2rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #dbefff 0%, #f6faff 100%);
+  border-radius: 1rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+  max-width: 1100px;
   margin-inline: auto;
 }
 
-.hero {
-  background: linear-gradient(135deg, #dce9ff 0%, #f3f7ff 100%);
-  padding: 4rem 2rem 2rem;
-  text-align: center;
-  border-radius: 1rem;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
-  margin-bottom: 3rem;
-  transition: box-shadow 0.3s ease;
-}
-
-.hero:hover {
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+.heroInner {
+  max-width: 600px;
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 6vw, 3rem);
+  font-size: clamp(2.25rem, 6vw, 2.75rem);
   font-weight: 700;
-  margin-bottom: 1rem;
   color: #111;
+  margin-bottom: 0.75rem;
 }
 
 .hero p {
   font-size: 1.1rem;
   color: #555;
-  max-width: 600px;
-  margin: 0 auto;
+  line-height: 1.6;
 }
 
+/* === BLOG POST GRID === */
 .postGrid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  animation: fadeInUp 0.4s ease both;
-  transition: all 0.3s ease-in-out;
+  padding-inline: 0.5rem;
 }
 
 .card {
   background: #fff;
-  padding: 1.5rem;
+  border: 1.5px solid #e2e8f0; /* subtle grey border */
   border-radius: 1.25rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.17);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  justify-content: space-between;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06); /* softer than before */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  height: 100%;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.22);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: #0070f3; /* highlight border on hover */
+}
+
+
+.card .date {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.5rem;
 }
 
 .card h3 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #111;
-  margin: 0;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
 }
 
 .card p {
   font-size: 0.95rem;
   color: #444;
-  margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
 }
 
-.card .date {
-  font-size: 0.8rem;
-  color: #888;
-  margin-top: -0.25rem;
-}
-
-.card .readMore {
-  margin-top: auto;
+.readMore {
   align-self: flex-start;
-  font-weight: 600;
   background: #0070f3;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.card .readMore:hover {
+.readMore:hover {
   background: #005ad6;
+  transform: translateY(-1px);
 }
 
-.postCard {
-  background-color: #fff;
-  padding: 2rem 1.5rem;
-  border-radius: 1rem;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  animation: fadeInUp 0.4s ease both;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
-  position: relative;
-  z-index: 1;
-}
-
-.postCard:hover {
-  opacity: 0.95;
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
-  background-color: #f9fafb;
-}
-
-.postCard h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #111;
-  margin-bottom: 0.75rem;
-  line-height: 1.35;
-  max-height: 3.2em;
-  overflow: hidden;
-  line-clamp: 2;          /* Standard property */
-  -webkit-line-clamp: 2;  /* Vendor-prefixed fallback */
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-}
-
-.postCard p {
-  color: #444;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  flex-grow: 1;
-  max-height: 4.5em;
-  overflow: hidden;
-  line-clamp: 3;          /* Standard property */
-  -webkit-line-clamp: 3;  /* Vendor-prefixed fallback */
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-}
-
-/* === Slug Page Styles === */
+/* === POST PAGE CONTENT === */
 .header {
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .mdxContent {
-  line-height: 1.75;
   font-size: 1rem;
+  line-height: 1.75;
+  color: #333;
+}
+
+.mdxContent h2,
+.mdxContent h3 {
+  font-weight: 600;
+  margin: 2rem 0 1rem;
 }
 
 .mdxContent h2 {
   font-size: 1.75rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
 }
 
 .mdxContent h3 {
   font-size: 1.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
 }
 
 .mdxContent p {
@@ -195,8 +140,8 @@
 }
 
 .mdxContent img {
-  display: block;
   max-width: 100%;
+  display: block;
   margin: 1.5rem auto;
   border-radius: 0.5rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -205,9 +150,9 @@
 .mdxContent blockquote {
   border-left: 4px solid #ddd;
   padding-left: 1rem;
-  color: #555;
   font-style: italic;
   margin: 1.5rem 0;
+  color: #555;
 }
 
 .mdxContent pre {
@@ -220,7 +165,7 @@
 
 .mdxContent code {
   background: #eee;
-  padding: 0.2rem 0.4rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 0.3rem;
   font-size: 0.95rem;
 }
@@ -234,38 +179,7 @@
   text-decoration: none;
 }
 
-/* Date styling for list and detail */
-.date {
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: -0.25rem;
-  display: inline-block;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-
-.ctaSmall {
-  margin-top: auto;
-  font-weight: 500;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  background-color: #0070f3;
-  color: white;
-  text-decoration: none;
-  align-self: flex-start;
-  text-align: center;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.ctaSmall:hover {
-  background-color: #0056c1;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
+/* === PAGINATION === */
 .pagination {
   display: flex;
   flex-wrap: wrap;
@@ -276,31 +190,30 @@
 }
 
 .pageButton {
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  background-color: #f3f4f6;
+  background: #f3f4f6;
   color: #333;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .pageButton:hover {
   background-color: #e2e8f0;
   transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .pageButtonActive {
   background-color: #0070f3;
   color: #fff;
   font-weight: 600;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   position: relative;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .pageButtonActive::after {
@@ -315,19 +228,20 @@
   border-radius: 2px;
 }
 
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2rem;
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .postGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
+@media (max-width: 480px) {
   .postGrid {
     grid-template-columns: 1fr;
   }
 
-  .ctaSmall {
-    width: 100%;
-    text-align: center;
-    margin-top: 1rem;
+  .hero h1 {
+    font-size: 2rem;
   }
 
   .pagination {
@@ -336,6 +250,11 @@
   }
 
   .pageButton {
+    width: 100%;
+    text-align: center;
+  }
+
+  .readMore {
     width: 100%;
     text-align: center;
   }

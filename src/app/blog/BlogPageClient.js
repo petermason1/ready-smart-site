@@ -25,51 +25,47 @@ export default function BlogPageClient({ posts }) {
       </section>
 
       {/* === Blog Post Grid === */}
-      <div className={styles.postGrid}>
+      <section className={styles.postGrid}>
         {paginatedPosts.map((post) => (
-          <article key={post.slug} className={styles.postCard}>
+          <article key={post.slug} className={styles.card}>
             <span className={styles.date}>
               {post.date
                 ? new Date(post.date).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'long',
+                    day: '2-digit',
+                    month: 'short',
                     year: 'numeric',
                   })
                 : ''}
             </span>
             <h3>{post.title}</h3>
             {post.description && <p>{post.description}</p>}
-            <Link href={`/blog/${post.slug}`} className={styles.ctaSmall}>
+            <Link href={`/blog/${post.slug}`} className={styles.readMore}>
               Read More →
             </Link>
           </article>
         ))}
-      </div>
+      </section>
 
       {/* === Pagination === */}
       {totalPages > 1 && (
-        <nav className={styles.pagination}>
+        <nav className={styles.pagination} aria-label="Pagination">
           {currentPage > 1 && (
             <Link href={`?page=${currentPage - 1}`} className={styles.pageButton}>
               ← Previous
             </Link>
           )}
-
           {Array.from({ length: totalPages }, (_, i) => {
             const page = i + 1;
             return (
               <Link
                 key={page}
                 href={`?page=${page}`}
-                className={`${styles.pageButton} ${
-                  currentPage === page ? styles.pageButtonActive : ''
-                }`}
+                className={`${styles.pageButton} ${currentPage === page ? styles.pageButtonActive : ''}`}
               >
                 {page}
               </Link>
             );
           })}
-
           {currentPage < totalPages && (
             <Link href={`?page=${currentPage + 1}`} className={styles.pageButton}>
               Next →

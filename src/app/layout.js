@@ -56,14 +56,15 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 
       </head>
-     <body>
-  <div id="top">
-    <Navbar />
+    <body>
+  <Navbar />
+  <main className="mainWrapper">
     {children}
-    <Footer />
-    <ScrollToTopButton />  {/* ← add it after Footer */}
-  </div>
+  </main>
+  <Footer />
+  <ScrollToTopButton />
 </body>
+
 
     </html>
   );

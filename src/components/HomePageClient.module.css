@@ -1,80 +1,3 @@
-.pageWrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1.5rem 1rem 2rem;
-}
-
-/* === HERO SECTION === */
-.hero {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.hero h1 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-.hero p {
-  font-size: 1rem;
-  color: var(--text-muted);
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-
-/* === PRICING GRID === */
-.pricingGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.card {
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  padding: 1.25rem 1rem;
-  text-align: center;
-  max-width: 300px;
-  flex: 1 1 280px;
-  transition: transform 0.3s ease;
-}
-.card:hover {
-  transform: translateY(-4px);
-}
-.card h2 {
-  margin-bottom: 0.25rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-.price {
-  color: var(--primary);
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
-}
-.card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.card li {
-  font-size: 0.9rem;
-  color: #444;
-  margin-bottom: 0.4rem;
-}
-
-.useIntro {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-  max-width: 600px;
-  margin-inline: auto;
-  line-height: 1.5;
-}
-
 /* === USE CASES SECTION === */
 .useCases {
   text-align: center;
@@ -88,12 +11,26 @@
 
 .useGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(4, 1fr); /* Desktop: 4x2 */
+  gap: 1.5rem;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+@media (max-width: 1023px) {
+  .useGrid {
+    grid-template-columns: repeat(2, 1fr); /* Tablet: 2x4 */
+  }
+}
+
+/* Optional: narrow mobile fallback */
+@media (max-width: 480px) {
+  .useGrid {
+    grid-template-columns: 1fr; /* Only if you want 1x8 */
+  }
+}
+
 
 .useCard {
   background: #fff;
