@@ -21,7 +21,7 @@ export default function Hero() {
     >
       {/* === Urgency Banner === */}
       <div className={styles.urgencyBanner} role="alert">
-        🎉 Today Only: Free Smart Home Help — Book Now for Local Setup Advice
+        💬 “Not Sure Where to Start? Get Free Setup Advice – Same Day Reply.”
       </div>
 
       <div className={styles.heroContainer}>
