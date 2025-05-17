@@ -5,18 +5,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-
-        {/* Logo & Brand */}
+        
+        {/* === Logo & Brand === */}
         <div className={styles.logoArea}>
           <Image src="/logo.png" alt="Ready Smart Homes Logo" width={32} height={32} />
           <span className={styles.brand}>Ready Smart Homes</span>
         </div>
 
-        {/* Desktop Nav */}
-        <nav className={styles.footerNav}>
+        {/* === Footer Navigation === */}
+        <nav className={styles.footerNav} aria-label="Footer">
           <Link href="/">Home</Link>
           <Link href="/pricing">Pricing</Link>
           <Link href="/contact">Contact</Link>
@@ -24,14 +26,13 @@ export default function Footer() {
           <Link href="/smart-picks">Smart Picks</Link>
         </nav>
 
-        {/* Mobile Only – Back to Top */}
-        <Link href="#top" className={styles.backToTop}>
-        ↑ Back to Top
-        </Link>  
+        {/* === Mobile: Back to Top === */}
+        <Link href="#top" className={styles.backToTop} aria-label="Back to top of page">
+          ↑ Back to Top
+        </Link>
 
-
-        {/* Social Icons */}
-        <div className={styles.social}>
+        {/* === Social Links === */}
+        <div className={styles.social} aria-label="Social media links">
           <a href="https://www.facebook.com/readysmarthomes" target="_blank" rel="noopener noreferrer">
             <Image src="/icons/facebook.svg" alt="Facebook" width={24} height={24} />
           </a>
@@ -43,9 +44,9 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Copyright */}
+        {/* === Legal === */}
         <div className={styles.legal}>
-          &copy; {new Date().getFullYear()} Ready Smart Homes. All rights reserved.
+          &copy; {year} Ready Smart Homes. All rights reserved.
         </div>
       </div>
     </footer>

@@ -17,16 +17,17 @@ export default function Hero() {
       initial="hidden"
       animate="show"
       variants={fadeInUp}
+      aria-labelledby="hero-heading"
     >
       {/* === Urgency Banner === */}
-      <div className={styles.urgencyBanner}>
+      <div className={styles.urgencyBanner} role="alert">
         🎉 Today Only: Free Smart Home Help — Book Now for Local Setup Advice
       </div>
 
       <div className={styles.heroContainer}>
         {/* === Text Content === */}
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>
+          <h1 id="hero-heading" className={styles.heroTitle}>
             Smart Home Setup Without the Stress
           </h1>
 
@@ -37,7 +38,7 @@ export default function Hero() {
           </p>
 
           <div className={styles.heroLocation}>
-            <span>📍 Smart home setup based in Morpeth — covering the whole North East.</span>
+            <span>📍 Based in Morpeth — covering Newcastle, Northumberland & the North East.</span>
           </div>
 
           <Link href="/contact" className={styles.cta}>
@@ -49,7 +50,7 @@ export default function Hero() {
         <div className={styles.heroImageWrapper}>
           <Image
             src="/smart-home-preview.png"
-            alt="Preview of a smart home setup"
+            alt="Illustration of a smart home system"
             width={600}
             height={400}
             className={styles.heroImage}

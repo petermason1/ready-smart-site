@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 export default function FooterCTA() {
   return (
-    <section className={styles.footerCTA}>
-      <h2 className={styles.footerCTATitle}>
+    <section className={styles.footerCTA} aria-labelledby="footer-cta-title">
+      <h2 id="footer-cta-title" className={styles.footerCTATitle}>
         Need Help With Your Smart Home?
       </h2>
       <p className={styles.footerCTADescription}>

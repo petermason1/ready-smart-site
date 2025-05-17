@@ -11,13 +11,17 @@
   border-radius: 999px;
   box-shadow: var(--shadow-sm);
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 0.85;
   transition: opacity 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(2px); /* Optional glassy look */
+  -webkit-tap-highlight-color: transparent; /* Mobile tap fix */
 }
 
-.scrollButton:hover {
+.scrollButton:hover,
+.scrollButton:focus-visible {
   opacity: 1;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  outline: none;
 }
 
 @media (max-width: 640px) {

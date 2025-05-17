@@ -3,18 +3,20 @@ export const dynamic = 'force-dynamic';
 import { getAllPosts, getPostBySlug } from '@/lib/mdx';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import styles from '../Blog.module.css';
+import styles from '@/components/Blog/Blog.module.css';
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-export default async function PostPage(props) {
-  const { slug } = await props.params;    // ← await here
+export default async function PostPage({ params }) {
+  const { slug } = params;
+
   if (!slug) notFound();
 
   const post = await getPostBySlug(slug);
+
   if (!post?.content) notFound();
 
   return (

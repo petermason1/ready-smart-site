@@ -4,22 +4,29 @@ import { useEffect, useState } from 'react';
 import styles from './ScrollToTopButton.module.css';
 
 export default function ScrollToTopButton() {
-  const [visible, setVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setVisible(window.scrollY > 200);
+    const handleScroll = () => {
+      const shouldShow = window.scrollY > 200;
+      setIsVisible((prev) => prev !== shouldShow ? shouldShow : prev);
     };
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Check on mount too
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = () =>
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
-  return visible ? (
-    <button onClick={scrollToTop} className={styles.scrollButton} aria-label="Back to Top">
+  return isVisible ? (
+    <button
+      onClick={scrollToTop}
+      className={styles.scrollButton}
+      aria-label="Scroll to top"
+    >
       ↑
     </button>
   ) : null;

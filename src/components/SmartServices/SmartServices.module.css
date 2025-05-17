@@ -1,23 +1,25 @@
+/* === PAGE WRAPPER === */
 .wrapper {
-  max-width: 1100px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 4rem;
 }
 
-/* === HERO === */
+/* === HERO SECTION === */
 .hero {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .hero h1 {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--text);
 }
 
 .hero p {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
   max-width: 700px;
   margin: 0 auto;
@@ -28,69 +30,94 @@
 .servicesList {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  max-width: 850px;
-  margin: 0 auto 3rem;
+  gap: 2rem;
 }
 
 .serviceItem {
-  background: #fff;
-  padding: 1.5rem;
+  background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
+  padding: 1.5rem 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.serviceItem:hover {
+  transform: translateY(-3px);
 }
 
 .serviceItem h2 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.25rem;
+  color: var(--text);
 }
 
 .price {
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--primary);
-  font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
+/* === DESCRIPTION BULLETS === */
 .serviceItem ul {
-  padding-left: 1.25rem;
-  list-style: disc;
-  color: #444;
+  padding-left: 1.2rem;
+  margin: 0;
 }
 
 .serviceItem li {
-  font-size: 0.92rem;
-  margin-bottom: 0.4rem;
-  line-height: 1.5;
-}
-
-/* === CTA === */
-.cta {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.cta h2 {
-  font-size: 1.4rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
   margin-bottom: 0.5rem;
 }
 
+/* === CTA SECTION === */
+.cta {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cta h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
 .cta p {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
+  font-size: 1rem;
   color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-inline: auto;
 }
 
 .ctaBtn {
+  display: inline-block;
   background: var(--primary);
   color: white;
-  padding: 0.65rem 1.25rem;
-  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
   font-weight: 600;
+  border-radius: var(--radius);
   text-decoration: none;
-  transition: background var(--transition);
+  transition: background 0.3s ease;
 }
 
 .ctaBtn:hover {
   background: var(--primary-hover);
+}
+
+/* === MOBILE TWEAKS === */
+@media (max-width: 600px) {
+  .serviceItem {
+    padding: 1.25rem;
+  }
+
+  .hero p,
+  .cta p {
+    font-size: 0.95rem;
+  }
 }

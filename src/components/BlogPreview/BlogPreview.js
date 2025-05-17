@@ -14,6 +14,11 @@ const fadeInUp = {
 };
 
 export default function BlogPreview({ post }) {
+  if (!post) {
+    console.warn('[BlogPreview] No post data provided.');
+    return null;
+  }
+
   return (
     <section className={styles.blogPreview}>
       <div className={styles.container}>
@@ -21,12 +26,12 @@ export default function BlogPreview({ post }) {
           className={styles.card}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.5 }}
           variants={fadeInUp}
         >
           <h2 className={styles.sectionTitle}>Latest Blog Post</h2>
           <h3 className={styles.postTitle}>{post.title}</h3>
-          <p className={styles.description}>{post.description}</p>
+          {post.description && <p className={styles.description}>{post.description}</p>}
           <Link href={`/blog/${post.slug}`} className={styles.ctaSmall}>
             Read More →
           </Link>

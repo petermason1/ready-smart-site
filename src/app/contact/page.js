@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import styles from './contact.module.css';
+import { usePathname } from 'next/navigation';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });

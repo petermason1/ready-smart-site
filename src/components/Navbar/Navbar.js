@@ -16,7 +16,7 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
-  // Close mobile nav on outside click
+  // Close menu on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -36,7 +36,7 @@ export default function Navbar() {
   // Add shadow on scroll
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    handleScroll();
+    handleScroll(); // run immediately
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -47,17 +47,26 @@ export default function Navbar() {
     { name: 'Contact', href: '/contact' },
     { name: 'Blog', href: '/blog' },
     { name: 'Smart Picks', href: '/smart-picks' },
-    { name: 'Get Free Advice', href: '/contact', cta: true }, // CTA styled
+    { name: 'Get Free Advice', href: '/contact', cta: true },
   ];
 
   return (
-    <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+    <header
+      className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}
+      role="banner"
+    >
       <div className={styles.innerWrapper}>
+        {/* === Logo & Brand === */}
         <div className={styles.logoWrapper}>
-          <Link href="/" className={styles.branding} aria-label="Home">
+          <Link href="/" className={styles.branding} aria-label="Go to homepage">
             <div className={styles.logoTextWrapper}>
               <div className={styles.logoPulse}>
-                <Image src="/logo.png" alt="Ready Smart Homes logo" width={40} height={40} />
+                <Image
+                  src="/logo.png"
+                  alt="Ready Smart Homes logo"
+                  width={40}
+                  height={40}
+                />
               </div>
               <span className={styles.brandText}>Ready Smart Homes</span>
             </div>
@@ -67,28 +76,30 @@ export default function Navbar() {
             ref={burgerRef}
             className={`${styles.burger} ${isOpen ? styles.open : ''}`}
             onClick={toggleMenu}
-            aria-label="Toggle navigation menu"
+            aria-label="Toggle mobile navigation"
             aria-expanded={isOpen}
             aria-controls="main-navigation"
           >
-            <div />
-            <div />
-            <div />
+            <span />
+            <span />
+            <span />
           </button>
         </div>
 
+        {/* === Navigation Links === */}
         <nav
           id="main-navigation"
           ref={navRef}
           className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}
           role="navigation"
+          aria-label="Main site navigation"
         >
           {navLinks.map(({ name, href, cta }, index) => (
             <Link
               key={name}
               href={href}
-              prefetch={false}
               onClick={closeMenu}
+              prefetch={false}
               className={`
                 ${pathname === href ? styles.active : ''}
                 ${cta ? styles.ctaLink : ''}
