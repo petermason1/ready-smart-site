@@ -1,8 +1,8 @@
-/* === BASE HERO WRAPPER === */
+/* === HERO WRAPPER === */
 .hero {
   background: var(--background);
-  overflow: hidden;
   padding: 2rem 0;
+  overflow: hidden;
 }
 
 /* === URGENCY BANNER === */
@@ -27,7 +27,7 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding-inline: 1rem;
 }
 
 /* === TEXT AREA === */
@@ -76,7 +76,7 @@
 
 /* === IMAGE === */
 .heroImageWrapper {
-  max-width: 500px;
+  max-width: 480px;
   width: 100%;
 }
 
@@ -87,21 +87,23 @@
   border-radius: var(--radius);
 }
 
-/* === DESKTOP FIXED LAYOUT === */
+/* === DESKTOP OVERRIDES === */
 @media (min-width: 768px) {
-  .hero {
-    padding: 3rem 0 4rem;
-  }
-
   .heroContainer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     text-align: left;
-    padding: 0 2rem;
+    padding-inline: 2rem;
   }
 
   .heroContent {
+    flex: 1;
     text-align: left;
+  }
+
+  .heroImageWrapper {
+    flex: 1;
+    max-width: 480px;
   }
 }
