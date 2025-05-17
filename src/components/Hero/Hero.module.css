@@ -1,11 +1,11 @@
+/* === BASE HERO WRAPPER === */
 .hero {
-  padding-top: 1rem; /* was too big before */
-  padding-bottom: 2rem;
   background: var(--background);
   overflow: hidden;
+  padding: 2rem 0;
 }
 
-
+/* === URGENCY BANNER === */
 .urgencyBanner {
   background-color: #fff8d1;
   color: #222;
@@ -17,12 +17,9 @@
   max-width: 1200px;
   margin: 0 auto 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  .urgencyBanner {
-  margin-top: 0;
 }
 
-}
-
+/* === FLEX CONTAINER === */
 .heroContainer {
   display: flex;
   flex-direction: column-reverse;
@@ -30,9 +27,10 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding-inline: 1rem;
+  padding: 0 1.5rem;
 }
 
+/* === TEXT AREA === */
 .heroContent {
   max-width: 560px;
   text-align: center;
@@ -59,6 +57,7 @@
   margin-bottom: 1.5rem;
 }
 
+/* === CTA BUTTON === */
 .cta {
   display: inline-block;
   background-color: var(--primary);
@@ -75,6 +74,7 @@
   background-color: var(--primary-hover);
 }
 
+/* === IMAGE === */
 .heroImageWrapper {
   max-width: 500px;
   width: 100%;
@@ -87,14 +87,18 @@
   border-radius: var(--radius);
 }
 
-/* === Tablet & Desktop Styles === */
+/* === DESKTOP FIXED LAYOUT === */
 @media (min-width: 768px) {
+  .hero {
+    padding: 3rem 0 4rem;
+  }
+
   .heroContainer {
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     text-align: left;
-    padding-inline: 2rem;
+    padding: 0 2rem;
   }
 
   .heroContent {
