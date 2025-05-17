@@ -4,33 +4,35 @@
   top: 0;
   z-index: 1000;
   width: 100%;
-  padding: 1.25rem 0;
-  background-color: #f4f4f4;
+  padding: 0.75rem 0;
+  background-color: #fff;
   border-bottom: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 0; 
 }
 
+/* === WRAPPER === */
 .innerWrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
+/* === LOGO === */
 .logoWrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  gap: 1rem;
 }
 
 .branding {
-  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  text-decoration: none;
 }
 
 .logoTextWrapper {
@@ -82,37 +84,11 @@
   text-shadow: 0 0 8px rgba(0, 112, 243, 0.6);
 }
 
-/* === ANIMATIONS === */
-@keyframes shimmer {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(0.95);
-    opacity: 0.6;
-  }
-  70% {
-    transform: scale(1.4);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-}
-
-/* === NAV LINKS === */
+/* === NAV LINKS DESKTOP === */
 .navLinks {
   display: flex;
   gap: 1.5rem;
-  white-space: nowrap;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  align-items: center;
 }
 
 .navLinks a {
@@ -143,7 +119,6 @@
   font-weight: 600;
 }
 
-/* CTA Link (used in nav) */
 .ctaLink {
   background: #007aff;
   color: white !important;
@@ -151,9 +126,8 @@
   border-radius: 6px;
   font-weight: 600;
   text-decoration: none;
-  margin-left: 1rem;
-  transition: background 0.3s ease;
   white-space: nowrap;
+  transition: background 0.3s ease;
 }
 
 .ctaLink:hover {
@@ -162,13 +136,6 @@
 
 .ctaLink::after {
   display: none;
-}
-
-/* Scroll styling */
-.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(10px);
 }
 
 /* === BURGER MENU === */
@@ -182,7 +149,7 @@
   z-index: 1100;
 }
 
-.burger div {
+.burger span {
   width: 24px;
   height: 2px;
   background: #222;
@@ -190,17 +157,17 @@
   transition: all 0.3s ease;
 }
 
-.burger.open div:nth-child(1) {
+.burger.open span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
-.burger.open div:nth-child(2) {
+.burger.open span:nth-child(2) {
   opacity: 0;
 }
-.burger.open div:nth-child(3) {
+.burger.open span:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* === MOBILE NAV === */
+/* === MOBILE STYLES === */
 @media (max-width: 768px) {
   .burger {
     display: flex;
@@ -211,7 +178,7 @@
     position: absolute;
     top: 100%;
     right: 1rem;
-    background: white;
+    background: #fff;
     border-radius: 12px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
     padding: 1rem 1.25rem;
@@ -221,6 +188,8 @@
     opacity: 0;
     transform-origin: top right;
     pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1001;
   }
 
   .navLinks.show {
@@ -251,4 +220,49 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     font-weight: 600;
   }
+
+  .innerWrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .brandText {
+    animation: none;
+    background: var(--primary);
+    color: white;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+  }
+}
+
+/* === ANIMATIONS === */
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+/* === SCROLL SHADOW === */
+.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
 }

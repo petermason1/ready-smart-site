@@ -13,10 +13,20 @@ export default function Navbar() {
   const navRef = useRef(null);
   const burgerRef = useRef(null);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Contact', href: '/contact' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Smart Picks', href: '/smart-picks' },
+    { name: 'Get Free Advice', href: '/contact', cta: true },
+  ];
+
+  // Toggle burger menu
+  const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 
-  // Close menu on outside click
+  // Close on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -29,26 +39,22 @@ export default function Navbar() {
         closeMenu();
       }
     };
+
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
 
-  // Add shadow on scroll
+  // Scroll shadow toggle (throttled)
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    handleScroll(); // run immediately
+    const handleScroll = () => {
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+      });
+    };
+    handleScroll(); // initial check
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Smart Picks', href: '/smart-picks' },
-    { name: 'Get Free Advice', href: '/contact', cta: true },
-  ];
 
   return (
     <header
@@ -56,7 +62,7 @@ export default function Navbar() {
       role="banner"
     >
       <div className={styles.innerWrapper}>
-        {/* === Logo & Brand === */}
+        {/* === Branding / Logo === */}
         <div className={styles.logoWrapper}>
           <Link href="/" className={styles.branding} aria-label="Go to homepage">
             <div className={styles.logoTextWrapper}>
@@ -66,6 +72,7 @@ export default function Navbar() {
                   alt="Ready Smart Homes logo"
                   width={40}
                   height={40}
+                  priority
                 />
               </div>
               <span className={styles.brandText}>Ready Smart Homes</span>
@@ -76,7 +83,7 @@ export default function Navbar() {
             ref={burgerRef}
             className={`${styles.burger} ${isOpen ? styles.open : ''}`}
             onClick={toggleMenu}
-            aria-label="Toggle mobile navigation"
+            aria-label="Toggle menu"
             aria-expanded={isOpen}
             aria-controls="main-navigation"
           >
@@ -92,18 +99,17 @@ export default function Navbar() {
           ref={navRef}
           className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}
           role="navigation"
-          aria-label="Main site navigation"
+          aria-label="Main navigation"
         >
-          {navLinks.map(({ name, href, cta }, index) => (
+          {navLinks.map(({ name, href, cta }) => (
             <Link
               key={name}
               href={href}
-              onClick={closeMenu}
               prefetch={false}
+              onClick={closeMenu}
               className={`
                 ${pathname === href ? styles.active : ''}
                 ${cta ? styles.ctaLink : ''}
-                ${index === navLinks.length - 1 ? styles.finalLink : ''}
               `}
             >
               {name}
