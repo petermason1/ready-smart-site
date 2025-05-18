@@ -1,32 +1,31 @@
 'use client';
-import Image from 'next/image';
+
+import Link from 'next/link';
 import styles from './Hero.module.css';
 
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      <Image
-        src="/hero-luxury.png"
-        alt="Luxury smart home interior"
-        fill
-        priority
-        className={styles.bgImage}
-      />
-      <div className={styles.overlay} />
-
-      {/* Card content */}
-      <div className={styles.content}>
-        <h1 className={styles.titleMain}>The Smart Home Upgrade</h1>
-        <h2 className={styles.titleSub}>You Deserve</h2>
-        <p className={styles.subhead}>
+      <div className={styles.heroOverlay}>
+        <h1 className={styles.title}>The Smart Home Upgrade</h1>
+        <h2 className={styles.subheading}>You Deserve</h2>
+        <p className={styles.description}>
           Instant, frustration-free automation for real life.<br />
           No jargon. No faff. Just results.
         </p>
-      </div>
+        <p className={styles.promo}>Free Alexa Pop if you book before May 30th</p>
 
-      {/* Button below card */}
-      <div className={styles.ctaWrapper}>
-        <a href="/contact" className={styles.cta}>Get Started</a>
+        <Link href="/contact" className={styles.ctaButton}>
+          Book Free Consultation
+        </Link>
+
+        <p className={styles.trustQuote}>
+          “Installed in a day — works brilliantly!” – Laura, Morpeth
+        </p>
+
+        <Link href="#testimonials" className={styles.secondaryCta}>
+          See What Locals Say
+        </Link>
       </div>
     </section>
   );
