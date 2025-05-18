@@ -10,15 +10,14 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        
-        {/* === Logo & Brand === */}
-        <div className={styles.logoArea}>
-          <Image src="/logo.png" alt="Ready Smart Homes Logo" width={32} height={32} />
+        {/* Logo & Brand */}
+        <div className={styles.logoBrand}>
+          <Image src="/logo.png" alt="Ready Smart Homes Logo" width={32} height={32} priority />
           <span className={styles.brand}>Ready Smart Homes</span>
         </div>
 
-        {/* === Footer Navigation === */}
-        <nav className={styles.footerNav} aria-label="Footer">
+        {/* Footer Navigation */}
+        <nav className={styles.nav} aria-label="Footer Navigation">
           <Link href="/">Home</Link>
           <Link href="/pricing">Pricing</Link>
           <Link href="/contact">Contact</Link>
@@ -26,13 +25,8 @@ export default function Footer() {
           <Link href="/smart-picks">Smart Picks</Link>
         </nav>
 
-        {/* === Mobile: Back to Top === */}
-        <Link href="#top" className={styles.backToTop} aria-label="Back to top of page">
-          ↑ Back to Top
-        </Link>
-
-        {/* === Social Links === */}
-        <div className={styles.social} aria-label="Social media links">
+        {/* Social Icons */}
+        <div className={styles.social} aria-label="Social Media">
           <a href="https://www.facebook.com/readysmarthomes" target="_blank" rel="noopener noreferrer">
             <Image src="/icons/facebook.svg" alt="Facebook" width={24} height={24} />
           </a>
@@ -43,11 +37,14 @@ export default function Footer() {
             <Image src="/icons/twitter.png" alt="Twitter/X" width={24} height={24} />
           </a>
         </div>
-
-        {/* === Legal === */}
-        <div className={styles.legal}>
+      </div>
+      <div className={styles.metaRow}>
+        <div className={styles.copyright}>
           &copy; {year} Ready Smart Homes. All rights reserved.
         </div>
+        <Link href="#top" className={styles.backToTop} aria-label="Back to top">
+          ↑ Back to Top
+        </Link>
       </div>
     </footer>
   );

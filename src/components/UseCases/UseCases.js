@@ -1,8 +1,8 @@
 'use client';
 
-import styles from './UseCaseGrid.module.css';
+import styles from './UseCases.module.css';
 
-export default function UseCaseGrid() {
+export default function UseCases() {
   return (
     <section className={styles.useCases}>
       <h3>Smart Home Use Cases</h3>
@@ -23,10 +23,14 @@ export default function UseCaseGrid() {
         ].map(([title, desc], i) => {
           const [emoji, ...textParts] = title.split(' ');
           return (
-            <div key={i} className={styles.useCard}>
-              <h4 data-icon={emoji}>{textParts.join(' ')}</h4>
-              <p>{desc}</p>
-            </div>
+           <div key={i} className={styles.useCard}>
+             <h4 className={styles.cardTitle}>
+             <span className={styles.emoji} aria-hidden="true">{emoji}</span>
+             {textParts.join(' ')}
+            </h4>
+            <p>{desc}</p>
+         </div>
+
           );
         })}
       </div>

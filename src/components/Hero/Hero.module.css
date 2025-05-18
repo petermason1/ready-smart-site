@@ -1,128 +1,121 @@
 .hero {
-  background: var(--background);
-  padding: 1rem 0 2.5rem;
-  overflow: hidden;
-}
-
-/* === Top Banner === */
-.urgencyBanner {
-  background-color: #fff8d1;
-  color: #222;
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  max-width: 1100px;
-  margin: 0 auto 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-/* === Layout === */
-.heroContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh; /* full viewport height */
   display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+  background: #f5f7fa;
+  overflow: hidden;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  object-fit: cover;
+  filter: brightness(0.7) saturate(1.08) blur(0.2px);
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(106deg, rgba(28,38,70,0.15) 22%, rgba(36,107,253,0.08) 78%);
+  background-size: 180% 180%;
+  animation: gradientDrift 13s linear infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes gradientDrift {
+  0% { background-position: 0% 55%; }
+  100% { background-position: 100% 45%; }
+}
+
+/* The box: centered and fluid width */
+.content {
+  position: relative;
+  z-index: 3;
+  background: rgba(24,36,54,0.21);
+  backdrop-filter: blur(2px) saturate(1.05);
+  box-shadow: 0 8px 24px rgba(44, 80, 160, 0.13);
+  border-radius: 1.2rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  width: clamp(300px, 60vw, 700px); /* fluid size between 300px and 700px */
+  text-align: left;    /* text inside box is left aligned */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Headings and text */
+.titleMain {
+  font-size: clamp(1.6rem, 5vw, 3.2rem);
+  font-weight: 900;
+  margin-bottom: 0.4em;
+  letter-spacing: -1.2px;
+  line-height: 1.1;
+  text-shadow: 0 3px 20px rgba(32,54,80,0.1);
+}
+
+.titleSub {
+  font-size: clamp(1rem, 3vw, 2.1rem);
+  font-weight: 800;
+  margin-bottom: 1.2em;
+  color: #246bfd;
+  letter-spacing: -0.7px;
+  line-height: 1.1;
+}
+
+.subhead {
+  font-size: clamp(0.9rem, 2vw, 1.13rem);
+  font-weight: 500;
+  margin: 0 0 0 0;
+  line-height: 1.54;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 12px rgba(36,107,253,0.06);
+}
+
+/* Button wrapper: centered below the box */
+.ctaOutsideWrapper {
+  position: relative;
+  z-index: 3;
+  width: clamp(300px, 60vw, 700px); /* match box width fluidly */
+  display: flex;
+  justify-content: center; /* center button horizontally */
+  margin-top: clamp(1rem, 2vw, 2.5rem);
+  box-sizing: border-box;
   padding: 0 1rem;
 }
 
-/* === Text === */
-.heroContent {
-  max-width: 540px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 300px;
-}
-
-.heroTitle {
-  font-size: clamp(1.9rem, 5vw, 2.5rem);
-  font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: 1rem;
-  color: var(--text);
-}
-
-.heroDescription {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 1.25rem;
-}
-
-.heroLocation {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 1.5rem;
-}
-
-/* === CTA Button === */
+/* The button */
 .cta {
-  display: inline-block;
-  background-color: var(--primary);
+  background: linear-gradient(93deg, #246bfd 65%, #57a6ff 120%);
   color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius);
+  padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1rem, 2.5vw, 1.14rem);
+  border-radius: 2rem;
+  font-weight: 800;
   text-decoration: none;
-  transition: background 0.3s ease;
-  margin-top: auto;
-  align-self: center;
+  box-shadow: 0 6px 22px rgba(36,107,253,0.13);
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.16s, transform 0.17s, box-shadow 0.13s;
+  min-width: 140px;
 }
 
-.cta:hover {
-  background-color: var(--primary-hover);
-}
-
-/* === Image === */
-.heroImageWrapper {
-  max-width: 460px;
-  width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.heroImage {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: var(--radius);
-}
-
-/* === Desktop Overrides === */
-@media (min-width: 768px) {
-  .hero {
-    padding: 4rem 0;
-  }
-
-  .heroContainer {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-    padding: 0 2rem;
-  }
-
-  .heroContent {
-    text-align: left;
-    align-items: flex-start;
-  }
-
-  .cta {
-    align-self: flex-start;
-  }
-}
-
-/* === Mobile Safari Fix === */
-@media (max-width: 768px) {
-  .brandText {
-    background: none !important;
-    color: var(--primary) !important;
-    -webkit-background-clip: unset;
-    background-clip: unset;
-  }
+.cta:hover,
+.cta:focus {
+  background: linear-gradient(93deg, #1b50d6 60%, #246bfd 120%);
+  transform: translateY(-2px) scale(1.03);
 }

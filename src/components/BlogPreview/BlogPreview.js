@@ -4,6 +4,7 @@ import styles from './BlogPreview.module.css';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+// Animation variants for fade in and slide up effect
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   show: {
@@ -31,7 +32,9 @@ export default function BlogPreview({ post }) {
         >
           <h2 className={styles.sectionTitle}>Latest Blog Post</h2>
           <h3 className={styles.postTitle}>{post.title}</h3>
-          {post.description && <p className={styles.description}>{post.description}</p>}
+          {post.description && (
+            <p className={styles.description}>{post.description}</p>
+          )}
           <Link href={`/blog/${post.slug}`} className={styles.ctaSmall}>
             Read More →
           </Link>

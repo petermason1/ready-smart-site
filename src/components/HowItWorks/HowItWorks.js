@@ -5,18 +5,23 @@ import styles from './HowItWorks.module.css';
 const steps = [
   {
     number: 1,
-    title: 'Free Setup Call',
-    description: 'We talk through your smart home goals, gear, and what you want to automate — no pressure.',
+    title: 'Book Your Consultation',
+    description: 'Schedule a free call to discuss your home, needs, and smart goals.',
   },
   {
     number: 2,
-    title: 'We Install or Guide',
-    description: 'We visit in person or remotely set up Home Assistant, Alexa, or HomeKit — and keep it simple.',
+    title: 'Choose Your Package',
+    description: 'Select the smart home package that fits your lifestyle and budget.',
   },
   {
     number: 3,
-    title: 'You’re in Control',
-    description: 'No subscriptions. No confusion. You get a clean, private smart home system you can trust.',
+    title: 'Professional Installation',
+    description: 'We install and configure your devices with expert care and minimal fuss.',
+  },
+  {
+    number: 4,
+    title: 'Enjoy & Control',
+    description: 'Use your new smart home easily, with support when you need it.',
   },
 ];
 
@@ -30,7 +35,7 @@ export default function HowItWorks() {
       <div className={styles.steps}>
         {steps.map(({ number, title, description }) => (
           <div key={number} className={styles.step}>
-            <span aria-hidden="true">{number}</span>
+            <span aria-hidden="true" className={styles.stepNumber}>{number}</span>
             <h3>{title}</h3>
             <p>{description}</p>
           </div>

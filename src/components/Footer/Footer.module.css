@@ -1,125 +1,77 @@
-/* === FOOTER BASE === */
 .footer {
-  width: 100%;
-  background: var(--background);
-  padding: 3rem 1.5rem 2rem;
-  color: var(--text);
-  font-size: 0.95rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.03);
-  backdrop-filter: blur(6px);
-  position: relative;
+  width: 100vw;
+  padding: 1.5rem 0 0.8rem 0;
+  background: #f7fafd;
+  color: #234;
+  border-top: 1px solid #e3eaf5;
+  box-shadow: 0 2px 28px 0 rgba(36,107,253,0.04) inset;
+  font-size: 1.05rem;
 }
 
-/* Optional top divider for visual clarity */
-.footer::before {
-  content: '';
-  display: block;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.05);
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* === GRID CONTAINER === */
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-/* === LOGO & BRAND === */
-.logoArea {
+.logoBrand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--primary);
+  gap: 0.7rem;
 }
 
 .brand {
   font-weight: 700;
-  font-size: 1.1rem;
+  color: #246bfd;
+  font-size: 1.12rem;
+  letter-spacing: 0.01em;
 }
 
-/* === NAV LINKS === */
-.footerNav {
+.nav {
   display: flex;
+  gap: 1.2rem;
   flex-wrap: wrap;
-  gap: 1.25rem;
   justify-content: center;
 }
 
-.footerNav a {
-  color: var(--text);
-  font-weight: 500;
-  text-decoration: none;
-  transition: color var(--transition, 0.3s ease);
-}
-
-.footerNav a:hover {
-  color: var(--primary);
-}
-
-/* === BACK TO TOP === */
-.backToTop {
-  display: none;
-  color: var(--primary);
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  margin-top: -0.5rem;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.backToTop:hover {
-  opacity: 0.8;
-  transform: translateY(-2px);
-}
-
-/* Show only on mobile */
-@media (max-width: 640px) {
-  .footerNav {
-    display: none !important;
-  }
-
-  .backToTop {
-    display: inline-block !important;
-    font-size: 1rem;
-    padding: 0.5rem 0;
-  }
-}
-
-/* === SOCIAL ICONS === */
 .social {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  gap: 1.1rem;
 }
 
-.social a img {
-  opacity: 0.7;
-  transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
-  filter: grayscale(40%);
+.metaRow {
+  max-width: 1200px;
+  margin: 1.2rem auto 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.98rem;
+  color: #456;
+  gap: 1.2rem;
 }
 
-.social a:hover img {
-  transform: scale(1.15);
-  opacity: 1;
-  filter: none;
-}
-
-/* === LEGAL TEXT === */
-.legal {
-  font-size: 0.85rem;
-  opacity: 0.65;
-  margin-top: 0.5rem;
-  text-align: center;
+@media (max-width: 700px) {
+  .container,
+  .metaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  .nav {
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 0.7rem 0;
+  }
+  .footer {
+    font-size: 0.98rem;
+    padding: 1.2rem 0 0.5rem 0;
+  }
 }

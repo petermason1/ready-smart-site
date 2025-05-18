@@ -2,6 +2,7 @@
   padding: 3rem 1rem 2rem;
   max-width: 900px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .sectionTitle {
@@ -13,23 +14,26 @@
 }
 
 .list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem 2rem;
   padding: 0;
-  margin: 0;
+  margin: 0 0 2rem 0; /* added margin bottom for spacing */
+  list-style: none;
+  box-sizing: border-box;
 }
 
 .listItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
   background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
   padding: 1.25rem 1.5rem;
   transition: transform var(--transition), box-shadow 0.3s ease;
+  cursor: default;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-sizing: border-box;
 }
 
 .listItem:hover {
@@ -51,7 +55,7 @@
 }
 
 .listItem h3 {
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.25rem 0;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text);
@@ -62,11 +66,19 @@
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.5;
+  text-align: left;
 }
 
+/* CTA button wrapper for centering */
+.ctaWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* CTA button styling */
 .cta {
   display: inline-block;
-  margin: 2rem auto 0;
   background: var(--primary);
   color: #fff;
   font-weight: 600;
@@ -75,12 +87,17 @@
   text-decoration: none;
   transition: background var(--transition);
   text-align: center;
+  cursor: pointer;
+  font-size: 1rem;
+  min-width: 180px;
+  box-sizing: border-box;
 }
 
 .cta:hover {
   background: var(--primary-hover);
 }
 
+/* Responsive tweaks */
 @media (max-width: 640px) {
   .listItem {
     flex-direction: column;
@@ -101,6 +118,6 @@
 
   .cta {
     width: 100%;
-    text-align: center;
+    min-width: unset;
   }
 }
