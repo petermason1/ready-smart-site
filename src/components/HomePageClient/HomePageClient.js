@@ -2,15 +2,15 @@
 
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
-import UseCases from '@/components/UseCases';             // Cleaner import (index.js preferred)
+import UseCases from '@/components/UseCases';
 import ServiceHighlights from '@/components/ServiceHighlights';
 import ServiceGrid from '@/components/ServiceGrid';
 import HowItWorks from '@/components/HowItWorks';
-import BlogPreview from '@/components/BlogPreview';
-import RecentPosts from '@/components/RecentPosts';
+import BlogCarousel from '@/components/BlogCarousel';
 import Testimonials from '@/components/Testimonials/TestimonialCarousel';
 import FooterCTA from '@/components/FooterCTA';
 
+// Optional: Animation config for smooth page entry
 const staggerContainer = {
   hidden: {},
   show: {
@@ -18,32 +18,39 @@ const staggerContainer = {
   },
 };
 
-export default function HomePageClient({ latestPost, recentPosts }) {
+/**
+ * HomePageClient - main homepage layout
+ * Shows all homepage sections, but ONLY uses the BlogCarousel for blog content.
+ * @param {object} props
+ * @param {Array} props.allPosts - All blog posts for the carousel
+ */
+export default function HomePageClient({ allPosts }) {
   return (
     <motion.div initial="hidden" animate="show" variants={staggerContainer}>
-      {/* HERO SECTION */}
+      {/* Hero Section */}
       <Hero />
 
-      {/* USE CASES - the benefits/real-world results */}
+      {/* Real Use Cases Section */}
       <UseCases />
 
-      {/* SERVICE HIGHLIGHTS - teaser/summary, super scannable */}
+      {/* Highlights of What You Offer */}
       <ServiceHighlights />
 
-      {/* MAIN SERVICE GRID - detailed offers/packages */}
+      {/* Service/Package Grid */}
       <ServiceGrid />
 
-      {/* HOW IT WORKS - process/steps */}
+      {/* How It Works / Steps */}
       <HowItWorks />
 
-      {/* BLOG & RECENT POSTS */}
-      {latestPost && <BlogPreview post={latestPost} />}
-      {recentPosts?.length > 0 && <RecentPosts posts={recentPosts} />}
+      {/* Blog Carousel: Rotates 4 posts each load */}
+      {Array.isArray(allPosts) && allPosts.length > 0 && (
+        <BlogCarousel posts={allPosts} />
+      )}
 
-      {/* SOCIAL PROOF / REVIEWS */}
+      {/* Reviews/Testimonials */}
       <Testimonials />
 
-      {/* FINAL CTA */}
+      {/* Final Call-To-Action Footer */}
       <FooterCTA />
     </motion.div>
   );

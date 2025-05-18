@@ -1,5 +1,5 @@
+// src/components/HowItWorks.js
 'use client';
-
 import styles from './HowItWorks.module.css';
 
 const steps = [
@@ -31,12 +31,13 @@ export default function HowItWorks() {
       <h2 id="how-it-works-heading" className={styles.sectionTitle}>
         How It Works
       </h2>
-
       <div className={styles.steps}>
         {steps.map(({ number, title, description }) => (
           <div key={number} className={styles.step}>
-            <span aria-hidden="true" className={styles.stepNumber}>{number}</span>
-            <h3>{title}</h3>
+            <div className={styles.stepHeader}>
+              <span className={styles.stepNumber} aria-hidden="true">{number}</span>
+              <h3 className={styles.stepTitle}>{title}</h3>
+            </div>
             <p>{description}</p>
           </div>
         ))}

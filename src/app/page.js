@@ -1,27 +1,21 @@
 // src/app/page.js
 
-import { getLatestPublishedPost, getRecentPosts } from '@/lib/mdx';
+import { getAllPosts } from '@/lib/mdx';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
-// Dynamically load the homepage client component with suspense
+// Dynamically load the homepage client component with suspense for SSR/CSR split
 const HomePageClient = dynamic(() => import('@/components/HomePageClient'), {
   suspense: true,
 });
 
 export default async function HomePage() {
-  // Fetch latest blog post and 3 recent posts in parallel
-  const [latestPost, recentPosts] = await Promise.all([
-    getLatestPublishedPost(),
-    getRecentPosts(3),
-  ]);
+  // Fetch all blog posts for the carousel
+  const allPosts = await getAllPosts();
 
   return (
     <Suspense fallback={<div>Loading homepage...</div>}>
-      <HomePageClient
-        latestPost={latestPost ?? null}
-        recentPosts={recentPosts ?? []}
-      />
+      <HomePageClient allPosts={allPosts ?? []} />
     </Suspense>
   );
 }

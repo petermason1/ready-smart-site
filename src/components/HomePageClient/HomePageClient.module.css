@@ -1,105 +1,130 @@
-/* === USE CASES SECTION === */
-.useCases {
-  margin-top: 3rem;
+.carouselSection {
+  margin: 3rem auto 0 auto;
+  max-width: 580px;
   text-align: center;
-  margin-bottom: 2rem;
 }
-.useCases h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 2.5rem;
+.carouselTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.6rem;
+  color: #243357;
 }
-
-.useGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Desktop: 4x2 */
-  gap: 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-@media (max-width: 1023px) {
-  .useGrid {
-    grid-template-columns: repeat(2, 1fr); /* Tablet: 2x4 */
-  }
-}
-
-/* Optional: narrow mobile fallback */
-@media (max-width: 480px) {
-  .useGrid {
-    grid-template-columns: 1fr; /* Only if you want 1x8 */
-  }
-}
-
-
-.useCard {
-  background: #fff;
-  border-radius: var(--radius);
-  padding: 1rem;
-  box-shadow: var(--shadow-md);
-  text-align: left;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.useCard:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transform: translateY(-4px);
-}
-.useCard h4 {
-  margin-bottom: 0.4rem;
-  font-size: 1rem;
-  font-weight: 600;
+.carouselWrapper {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: center;
+  position: relative;
 }
-
-.useCard h4::before {
-  content: attr(data-icon);
-  font-size: 1.2rem;
+.carouselTrack {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  overflow: hidden;
+  width: 420px;
 }
-
-.useCard p {
-  font-size: 0.85rem;
-  color: #555;
+.carouselCard {
+  background: #fff;
+  border-radius: 1.15rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.17);
+  width: 420px;
+  padding: 0;
+  margin: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  border: 1.2px solid #eef2f8;
+}
+.imageWrap {
+  width: 100%;
+  height: 220px;
+  border-radius: 1.15rem 1.15rem 0 0;
+  overflow: hidden;
+  background: #f7faff;
+}
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.carouselContent {
+  padding: 1.1rem 1.5rem 1.3rem 1.5rem;
+  width: 100%;
+}
+.carouselCard h3 {
+  font-size: 1.13rem;
+  font-weight: 800;
+  margin: 0 0 0.6rem 0;
+  color: #222e3c;
+}
+.carouselCard p {
+  font-size: 1.04rem;
+  color: #566176;
+  margin-bottom: 1.1rem;
   line-height: 1.5;
 }
-
-/* === CTA SECTION === */
-.cta {
-  text-align: center;
-  margin-top: 3rem;
-}
-.cta h2 {
-  font-size: 1.6rem;
-  margin-bottom: 0.75rem;
-}
-.cta p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-}
-.ctaBtn {
+.carouselReadMore {
   display: inline-block;
-  padding: 0.65rem 1.25rem;
-  background: var(--primary);
-  color: white;
-  border-radius: 8px;
-  font-weight: 600;
+  background: #246bfd;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 1.6rem;
   text-decoration: none;
-  transition: background var(--transition);
+  font-weight: 700;
+  font-size: 1.03rem;
+  box-shadow: 0 4px 12px rgba(36,107,253,0.14);
+  transition: background 0.15s;
 }
-.ctaBtn:hover {
-  background: var(--primary-hover);
+.carouselReadMore:hover {
+  background: #1b50d6;
 }
-
-/* === Responsive Cards === */
-@media (max-width: 768px) {
-  .card {
-    flex: 1 1 100%;
-    max-width: 100%;
+.arrow {
+  background: #246bfd;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 0.7rem;
+  box-shadow: 0 4px 12px rgba(36,107,253,0.11);
+  transition: background 0.16s;
+}
+.arrow:hover { background: #1b50d6; }
+.dots {
+  display: flex;
+  gap: 0.35rem;
+  justify-content: center;
+  margin-top: 1.1rem;
+}
+.dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #c6d8fa;
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.dot.active {
+  background: #246bfd;
+  width: 1rem;
+  height: 1rem;
+  box-shadow: 0 2px 10px rgba(36,107,253,0.17);
+}
+@media (max-width: 700px) {
+  .carouselTrack, .carouselCard {
+    width: 95vw;
+    min-width: 0;
+    max-width: 98vw;
   }
-  .cta h2 {
-    font-size: 1.4rem;
+  .imageWrap {
+    height: 32vw;
+    min-height: 120px;
+    max-height: 200px;
   }
 }

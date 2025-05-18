@@ -32,8 +32,10 @@ export default function ServiceHighlights() {
       <div className={styles.highlightsGrid}>
         {highlights.map(({ icon, title, desc }, i) => (
           <div key={i} className={styles.highlightCard}>
-            <span className={styles.icon} aria-hidden="true">{icon}</span>
-            <h4>{title}</h4>
+            <div className={styles.highlightHeader}>
+              <span className={styles.icon} aria-hidden="true">{icon}</span>
+              <h4>{title}</h4>
+            </div>
             <p>{desc}</p>
           </div>
         ))}

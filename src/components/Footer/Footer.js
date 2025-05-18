@@ -12,7 +12,13 @@ export default function Footer() {
       <div className={styles.container}>
         {/* Logo & Brand */}
         <div className={styles.logoBrand}>
-          <Image src="/logo.png" alt="Ready Smart Homes Logo" width={32} height={32} priority />
+          <Image
+            src="/logo.png"
+            alt="Ready Smart Homes Logo"
+            width={32}
+            height={32}
+            priority
+          />
           <span className={styles.brand}>Ready Smart Homes</span>
         </div>
 
@@ -27,24 +33,37 @@ export default function Footer() {
 
         {/* Social Icons */}
         <div className={styles.social} aria-label="Social Media">
-          <a href="https://www.facebook.com/readysmarthomes" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.facebook.com/readysmarthomes"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
             <Image src="/icons/facebook.svg" alt="Facebook" width={24} height={24} />
           </a>
-          <a href="https://www.instagram.com/readysmarthomes" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.instagram.com/readysmarthomes"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
             <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} />
           </a>
-          <a href="https://x.com/ReadySmartHomes" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://x.com/ReadySmartHomes"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter/X"
+          >
             <Image src="/icons/twitter.png" alt="Twitter/X" width={24} height={24} />
           </a>
         </div>
       </div>
+
       <div className={styles.metaRow}>
         <div className={styles.copyright}>
           &copy; {year} Ready Smart Homes. All rights reserved.
         </div>
-        <Link href="#top" className={styles.backToTop} aria-label="Back to top">
-          ↑ Back to Top
-        </Link>
       </div>
     </footer>
   );

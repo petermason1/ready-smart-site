@@ -5,12 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from './TestimonialCarousel.module.css';
 
 const testimonials = [
-{
-  text: "Really impressed with Ready Smart Homes. They made everything simple, helped me figure out what I needed, and explained it without the usual tech waffle. The install was tidy and spot on — proper sound team. Highly recommend.",
-  name: "Craig D, Sunniside",
-  stars: 5,
-},
-
+  {
+    text: "Really impressed with Ready Smart Homes. They made everything simple, helped me figure out what I needed, and explained it without the usual tech waffle. The install was tidy and spot on — proper sound team. Highly recommend.",
+    name: "Craig D, Sunniside",
+    stars: 5,
+  },
   {
     text: "Peter sorted our Alexa setup in one visit — it just works now!",
     name: "Kelly, Morpeth",
@@ -51,16 +50,16 @@ const variants = {
 export default function TestimonialCarousel() {
   const [[index, direction], setIndex] = useState([0, 0]);
 
-  const paginate = (dir) => {
-    setIndex(([curr]) => [
-      (curr + dir + testimonials.length) % testimonials.length,
-      dir,
+  const paginate = (newDirection) => {
+    setIndex(([current]) => [
+      (current + newDirection + testimonials.length) % testimonials.length,
+      newDirection,
     ]);
   };
 
   useEffect(() => {
-    const timer = setInterval(() => paginate(1), 6000);
-    return () => clearInterval(timer);
+    const interval = setInterval(() => paginate(1), 6000);
+    return () => clearInterval(interval);
   }, []);
 
   const { text, name, stars } = testimonials[index];
@@ -83,9 +82,9 @@ export default function TestimonialCarousel() {
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.6}
-            onDragEnd={(e, { offset }) => {
-              if (offset.x > 50) paginate(-1);
-              else if (offset.x < -50) paginate(1);
+            onDragEnd={(event, info) => {
+              if (info.offset.x > 50) paginate(-1);
+              else if (info.offset.x < -50) paginate(1);
             }}
           >
             <p className={styles.text}>{text}</p>
@@ -96,8 +95,12 @@ export default function TestimonialCarousel() {
       </div>
 
       <div className={styles.controls}>
-        <button onClick={() => paginate(-1)} aria-label="Previous">←</button>
-        <button onClick={() => paginate(1)} aria-label="Next">→</button>
+        <button onClick={() => paginate(-1)} aria-label="Previous testimonial" type="button">
+          ←
+        </button>
+        <button onClick={() => paginate(1)} aria-label="Next testimonial" type="button">
+          →
+        </button>
       </div>
     </section>
   );
