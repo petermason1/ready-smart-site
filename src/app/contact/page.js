@@ -28,7 +28,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className={styles.bgWrapper}>
+    <div className={styles.contactContainer}>
       <section className={styles.contactSection} aria-labelledby="contact-heading">
         <h1 id="contact-heading" className={styles.heading}>Let’s Connect</h1>
         <p className={styles.subheading}>
