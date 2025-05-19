@@ -10,6 +10,7 @@ import utils from '@/styles/Utilities.module.css';
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,13 +39,23 @@ export default function Navbar() {
           <span className={styles.logoText}>Ready Smart Homes</span>
         </Link>
 
-    
-        <nav className={styles.links}>
+        <button
+          className={styles.burger}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
+        >
+          <span className={styles.burgerLine}></span>
+          <span className={styles.burgerLine}></span>
+          <span className={styles.burgerLine}></span>
+        </button>
+
+        <nav className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
           {navLinks.map(({ name, href }) => (
             <Link
               key={name}
               href={href}
               className={`${styles.link} ${pathname === href ? styles.active : ''}`}
+              onClick={() => setMenuOpen(false)}
             >
               {name}
             </Link>

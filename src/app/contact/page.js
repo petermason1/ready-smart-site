@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import styles from './contact.module.css';
-import { usePathname } from 'next/navigation';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -30,29 +29,54 @@ export default function ContactPage() {
 
   return (
     <div className={styles.bgWrapper}>
-      <section className={styles.contactSection}>
-        <h1 className={styles.heading}>Let’s Connect</h1>
+      <section className={styles.contactSection} aria-labelledby="contact-heading">
+        <h1 id="contact-heading" className={styles.heading}>Let’s Connect</h1>
         <p className={styles.subheading}>
           Got a question or ready to upgrade your home? Fill out the form and we’ll get back to you within 1 business day.
         </p>
 
         {submitted ? (
-          <div className={styles.confirmation}>✅ Thanks! We&apos;ll be in touch soon.</div>
+          <div className={styles.confirmation}>
+            ✅ Thanks! We’ll be in touch soon.
+          </div>
         ) : (
-          <form onSubmit={handleSubmit} className={styles.form}>
-            <label className={styles.label}>
+          <form onSubmit={handleSubmit} className={styles.form} noValidate>
+            <label htmlFor="name" className={styles.label}>
               Name
-              <input type="text" name="name" value={form.name} onChange={handleChange} required className={styles.input} />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                className={styles.input}
+              />
             </label>
 
-            <label className={styles.label}>
+            <label htmlFor="email" className={styles.label}>
               Email
-              <input type="email" name="email" value={form.email} onChange={handleChange} required className={styles.input} />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                className={styles.input}
+              />
             </label>
 
-            <label className={styles.label}>
+            <label htmlFor="message" className={styles.label}>
               Message
-              <textarea name="message" value={form.message} onChange={handleChange} required className={styles.textarea} />
+              <textarea
+                id="message"
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                required
+                className={styles.textarea}
+              />
             </label>
 
             <button type="submit" className={styles.button}>Send Message</button>
@@ -60,13 +84,13 @@ export default function ContactPage() {
         )}
 
         <div className={styles.contactInfo}>
-     <p className={styles.contactInfo}>
-  Based in Morpeth, serving across the North East.<br />
-  <a href="tel:07919467819" className={styles.phoneNumber}>07919 467 819</a>
-</p>
-
+          <p>
+            Based in Morpeth, serving across the North East.<br />
+            <a href="tel:07919467819" className={styles.phoneNumber}>
+              07919 467 819
+            </a>
+          </p>
         </div>
-
       </section>
     </div>
   );
