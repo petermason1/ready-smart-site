@@ -17,6 +17,16 @@
   gap: 3rem;
 }
 
+.maxWidth {
+  max-width: 1200px;    /* or your preferred width */
+  margin: 0 auto;
+  width: 100%;
+  /* Optional: add side padding for small screens */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
 /* === FLEX UTILS === */
 .flex-center {
   display: flex;

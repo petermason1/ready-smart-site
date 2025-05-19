@@ -8,7 +8,7 @@
   --text: #111;
   --text-muted: #555;
   --heading: #0070f3;
-  --background: #f9f9f9;
+  --background: linear-gradient(120deg, #f4faff 0%, #e6f4ff 65%, #f8fcff 100%);
   --card-bg: #ffffff;
 
   /* Shadows */
@@ -60,7 +60,6 @@ main {
 }
 
 /* === LAYOUT CONTAINERS === */
-section,
 main {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -74,6 +73,7 @@ main {
     padding: 2rem;
   }
 }
+
 
 /* === TYPOGRAPHY === */
 h1, h2, h3, h4, h5, h6 {

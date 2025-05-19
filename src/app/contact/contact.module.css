@@ -131,3 +131,46 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 600px) {
+  .bgWrapper {
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;   /* less top/bottom padding */
+    min-height: unset;                      /* allow content to shrink up */
+    align-items: flex-start;                /* hug the top on mobile */
+  }
+
+  .contactSection {
+    padding: 1.2rem 0.6rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    margin-top: 0.4rem;                     /* Just a tiny gap below nav */
+  }
+  .heading {
+    font-size: 1.35rem;
+    margin-bottom: 0.65rem;
+  }
+  .subheading {
+    margin-bottom: 1.3rem;
+    font-size: 0.98rem;
+    max-width: 98%;
+  }
+  .form {
+    gap: 1.05rem;
+  }
+  .input,
+  .textarea {
+    font-size: 0.98rem;
+    padding: 0.57rem 0.8rem;
+    border-radius: 10px;
+  }
+  .button {
+    width: 100%;
+    font-size: 1.06rem;
+    padding: 0.8rem 0;
+    border-radius: 10px;
+  }
+  .contactInfo {
+    margin-top: 1.1rem;
+    font-size: 0.97rem;
+  }
+}

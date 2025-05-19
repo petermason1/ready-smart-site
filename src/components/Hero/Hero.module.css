@@ -1,14 +1,29 @@
 .hero {
-  position: relative;
-  min-height: 92vh;
   width: 100%;
+  min-height: 92vh;
+  background: linear-gradient(120deg, #eaf3ff 0%, #d6edff 52%, #f4faff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  background: linear-gradient(120deg, #eaf3ff 0%, #d6edff 52%, #ffffff 100%);
+  position: relative;
   box-sizing: border-box;
+  /* No max-width, no margin: 0 auto */
 }
+
+
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 80px;
+  pointer-events: none;
+  /* Fade from transparent to your site background */
+  background: linear-gradient(180deg, transparent, #f4faff 100%);
+  z-index: 2;
+}
+
+
 
 .overlay {
   position: absolute;

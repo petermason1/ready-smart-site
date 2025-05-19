@@ -10,7 +10,7 @@ import BlogCarousel from '@/components/BlogGrid';
 import Testimonials from '@/components/Testimonials/TestimonialCarousel';
 import FooterCTA from '@/components/FooterCTA';
 
-// Optional: Animation config for smooth page entry
+// Animation config for smooth page entry
 const staggerContainer = {
   hidden: {},
   show: {
@@ -20,38 +20,30 @@ const staggerContainer = {
 
 /**
  * HomePageClient - main homepage layout
- * Shows all homepage sections, but ONLY uses the BlogCarousel for blog content.
+ * Hero sits full-bleed above the contained homepage sections.
  * @param {object} props
  * @param {Array} props.allPosts - All blog posts for the carousel
  */
 export default function HomePageClient({ allPosts }) {
   return (
-    <motion.div initial="hidden" animate="show" variants={staggerContainer}>
-      {/* Hero Section */}
+    <>
+      {/* Full-width Hero Section */}
       <Hero />
 
-      {/* Real Use Cases Section */}
-      <UseCases />
-
-      {/* Highlights of What You Offer */}
-      <ServiceHighlights />
-
-      {/* Service/Package Grid */}
-      <ServiceGrid />
-
-      {/* How It Works / Steps */}
-      <HowItWorks />
-
-      {/* Blog Carousel: Rotates 4 posts each load */}
-      {Array.isArray(allPosts) && allPosts.length > 0 && (
-        <BlogCarousel posts={allPosts} />
-      )}
-
-      {/* Reviews/Testimonials */}
-      <Testimonials />
-
-      {/* Final Call-To-Action Footer */}
-      <FooterCTA />
-    </motion.div>
+      {/* The rest of the homepage sections are boxed/centered */}
+      <div className="mainWrapper">
+        <motion.div initial="hidden" animate="show" variants={staggerContainer}>
+          <UseCases />
+          <ServiceHighlights />
+          <ServiceGrid />
+          <HowItWorks />
+          {Array.isArray(allPosts) && allPosts.length > 0 && (
+            <BlogCarousel posts={allPosts} />
+          )}
+          <Testimonials />
+          <FooterCTA />
+        </motion.div>
+      </div>
+    </>
   );
 }

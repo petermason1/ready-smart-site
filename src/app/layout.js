@@ -69,7 +69,7 @@ export default function RootLayout({ children }) {
 
       <body>
         <Navbar />
-        <main className="mainWrapper">{children}</main>
+        {children}
         <Footer />
         <ScrollToTopButton />
       </body>
