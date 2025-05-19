@@ -3,7 +3,9 @@
 import Head from 'next/head';
 import styles from './SmartPicks.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
+import utils from '@/styles/Utilities.module.css';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -57,28 +59,43 @@ export default function SmartPicksPage() {
       <Head>
         <title>Best Smart Home Devices 2025 | Ready Smart Picks</title>
         <meta name="description" content="Our top smart home picks for 2025 — curated Matter-compatible, security, and high-tech devices with affiliate links." />
-        <meta name="keywords" content="smart home picks, best smart plugs, Home Assistant accessories, Matter devices UK, smart home 2025" />
         <meta property="og:title" content="Best Smart Home Devices 2025 | Ready Smart Picks" />
         <meta property="og:description" content="Explore the best smart home tech in 2025 with our Ready Smart Picks — real installs, affiliate links, and trusted gear." />
         <meta property="og:url" content="https://www.readysmarthomes.com/smart-picks" />
         <meta property="og:type" content="website" />
       </Head>
 
-      <motion.div className={styles.wrapper} variants={staggerContainer} initial="hidden" animate="show">
+      <motion.main className={`${styles.wrapper} ${utils.maxWidth}`} variants={staggerContainer} initial="hidden" animate="show">
         <h1 className={styles.sectionTitle}>Ready Smart Picks</h1>
         <p className={styles.sectionIntro}>These are the devices we trust and use — perfect for beginners or power users.</p>
         <p className={styles.disclosure}>Disclosure: This page contains Amazon affiliate links. We earn a commission if you purchase through our links, at no extra cost to you.</p>
 
         {picks.map((section) => (
-          <section key={section.category} className={styles.category} id={section.category.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}>
+          <section
+            key={section.category}
+            className={styles.category}
+            id={section.category.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}
+          >
             <h2 className={styles.categoryTitle}>{section.category}</h2>
             <div className={styles.grid}>
               {section.items.map((item) => (
                 <motion.div key={item.name} className={styles.card} variants={fadeInUp}>
-                  <Image src={item.image} alt={item.name} width={120} height={120} className={styles.image} />
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    width={120}
+                    height={120}
+                    className={styles.image}
+                    loading="lazy"
+                  />
                   <h3>{item.name}</h3>
                   <p>{item.desc}</p>
-                  <a href={item.link} target="_blank" rel="noopener noreferrer" className={styles.cta}>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.cta}
+                  >
                     View on Amazon
                   </a>
                 </motion.div>
@@ -86,7 +103,7 @@ export default function SmartPicksPage() {
             </div>
           </section>
         ))}
-      </motion.div>
+      </motion.main>
     </>
   );
 }

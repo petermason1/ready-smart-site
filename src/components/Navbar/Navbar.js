@@ -38,6 +38,7 @@ export default function Navbar() {
           <span className={styles.logoText}>Ready Smart Homes</span>
         </Link>
 
+    
         <nav className={styles.links}>
           {navLinks.map(({ name, href }) => (
             <Link

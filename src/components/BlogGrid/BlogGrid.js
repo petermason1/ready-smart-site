@@ -9,15 +9,16 @@ import Link from 'next/link';
 const fallbackImage = '/carousel/default.jpg';
 
 export default function BlogGrid({ posts }) {
-  if (!Array.isArray(posts) || posts.length === 0) {
-    return null;
-  }
+  if (!Array.isArray(posts) || posts.length === 0) return null;
 
   return (
-    <section className={styles.blogSection}>
+    <section className={styles.blogSection} aria-labelledby="blog-section-title">
       <div className={utils.maxWidth}>
-        <h2 className={styles.title}>Latest Blog Posts</h2>
-        <div className={`${utils.grid} ${utils['grid-cols-1']} ${utils['grid-cols-2']} ${utils['grid-cols-3']}`}>
+        <h2 id="blog-section-title" className={styles.title}>
+          Latest Blog Posts
+        </h2>
+
+        <div className={styles.grid}>
           {posts.map((post, i) => (
             <div key={post.slug || i} className={`${styles.card} ${animations.slideUp}`}>
               <div className={styles.imageWrap}>
@@ -29,9 +30,12 @@ export default function BlogGrid({ posts }) {
                   className={styles.image}
                 />
               </div>
+
               <h3 className={styles.cardTitle}>{post.title}</h3>
               <p className={styles.desc}>{post.description}</p>
-              <Link href={`/blog/${post.slug}`} className={styles.readMore}>Read More →</Link>
+              <Link href={`/blog/${post.slug}`} className={styles.readMore}>
+                Read More →
+              </Link>
             </div>
           ))}
         </div>
