@@ -43,7 +43,7 @@ export default function ServiceGrid() {
   return (
     <section className={`${styles.serviceGrid} ${utils.maxWidth}`} aria-labelledby="service-heading">
       <h2 id="service-heading" className={styles.title}>
-        Systems We Support
+        Supported Systems
       </h2>
 
       <div className={`${utils.grid} ${utils['grid-cols-1']} ${utils['grid-cols-2']} ${utils['grid-cols-3']}`}>

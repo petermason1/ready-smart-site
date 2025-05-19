@@ -19,7 +19,7 @@ export default function UseCases() {
 
   return (
     <section className={`${styles.useCases} ${utils.maxWidth}`}>
-      <h2 className={styles.heading}>Smart Home Use Cases</h2>
+      <h2 className={styles.heading}>Every Day Use</h2>
       <p className={styles.subheading}>
         These are the real-world benefits you’ll get — no tech talk needed.
       </p>

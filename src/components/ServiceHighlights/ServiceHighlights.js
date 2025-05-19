@@ -41,7 +41,7 @@ const highlights = [
 export default function ServiceHighlights() {
   return (
     <section className={`${styles.highlightsSection} ${utils.maxWidth}`}>
-      <h2 className={styles.highlightsTitle}>What I Can Do For You</h2>
+      <h2 className={styles.highlightsTitle}>Services</h2>
       <div className={`${utils.grid} ${utils['grid-cols-1']} ${utils['grid-cols-2']} ${utils['grid-cols-3']}`}>
         {highlights.map(({ icon, title, desc }, i) => (
           <div

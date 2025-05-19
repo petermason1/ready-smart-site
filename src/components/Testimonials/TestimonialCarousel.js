@@ -66,7 +66,7 @@ export default function TestimonialCarousel() {
 
   return (
     <section className={styles.carouselWrapper}>
-      <h2 className={styles.sectionTitle}>What Locals Are Saying</h2>
+      <h2 className={styles.sectionTitle}>Local Reviews</h2>
 
       <div className={styles.carouselBox}>
         <AnimatePresence initial={false} mode="wait" custom={direction}>
