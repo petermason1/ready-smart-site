@@ -6,7 +6,7 @@ import styles from './TestimonialCarousel.module.css';
 
 const testimonials = [
   {
-    text: "Really impressed with Ready Smart Homes. They made everything simple, helped me figure out what I needed, and explained it without the usual tech waffle. The install was tidy and spot on — proper sound team. Highly recommend.",
+    text: "Really impressed. They explained everything clearly and the install was spot on.",
     name: "Craig D, Sunniside",
     stars: 5,
   },

@@ -1,0 +1,48 @@
+/* === BASIC ANIMATIONS === */
+.fadeIn {
+  opacity: 0;
+  animation: fadeInAnim 0.6s ease-out forwards;
+}
+
+@keyframes fadeInAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slideUp {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUpAnim 0.6s ease-out forwards;
+}
+
+@keyframes slideUpAnim {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === HOVER EFFECTS === */
+.hoverGrow {
+  transition: transform 0.3s ease;
+}
+
+.hoverGrow:hover {
+  transform: scale(1.05);
+}
+
+.hoverShadow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hoverShadow:hover {
+  box-shadow: var(--shadow-md);
+}

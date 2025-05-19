@@ -1,69 +1,48 @@
 'use client';
 
-import styles from './Footer.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import styles from './Footer.module.css';
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
-        {/* Logo & Brand */}
-        <div className={styles.logoBrand}>
-          <Image
-            src="/logo.png"
-            alt="Ready Smart Homes Logo"
-            width={32}
-            height={32}
-            priority
-          />
-          <span className={styles.brand}>Ready Smart Homes</span>
-        </div>
-
-        {/* Footer Navigation */}
-        <nav className={styles.nav} aria-label="Footer Navigation">
+      <div className={styles.footerContainer}>
+        <nav className={styles.footerLinks}>
           <Link href="/">Home</Link>
           <Link href="/pricing">Pricing</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/blog">Blog</Link>
           <Link href="/smart-picks">Smart Picks</Link>
+          <Link href="/blog">Blog</Link>
+          <Link href="/contact">Contact</Link>
         </nav>
 
-        {/* Social Icons */}
-        <div className={styles.social} aria-label="Social Media">
+        <div className={styles.socials}>
           <a
-            href="https://www.facebook.com/readysmarthomes"
+            href="https://facebook.com/readysmarthomes"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
           >
-            <Image src="/icons/facebook.svg" alt="Facebook" width={24} height={24} />
+            <div className={styles.iconWrap}>
+              <Image src="/icons/facebook.svg" alt="Facebook" fill />
+            </div>
           </a>
+
           <a
-            href="https://www.instagram.com/readysmarthomes"
+            href="https://instagram.com/readysmarthomes"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
           >
-            <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} />
-          </a>
-          <a
-            href="https://x.com/ReadySmartHomes"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter/X"
-          >
-            <Image src="/icons/twitter.png" alt="Twitter/X" width={24} height={24} />
+            <div className={styles.iconWrap}>
+              <Image src="/icons/instagram.svg" alt="Instagram" fill />
+            </div>
           </a>
         </div>
-      </div>
 
-      <div className={styles.metaRow}>
-        <div className={styles.copyright}>
-          &copy; {year} Ready Smart Homes. All rights reserved.
-        </div>
+        <p className={styles.footerCopyright}>
+          &copy; {new Date().getFullYear()} Ready Smart Homes. All rights reserved.
+        </p>
       </div>
     </footer>
   );

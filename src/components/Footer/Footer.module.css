@@ -1,116 +1,114 @@
 .footer {
-  width: 100vw;
-  background: #f7fafd;
-  color: #234;
-  border-top: 1px solid #e3eaf5;
-  box-shadow: inset 0 2px 28px rgba(36, 107, 253, 0.04);
-  font-size: 1.05rem;
-  padding: 1.5rem 0 1rem;
-  box-sizing: border-box;
-  overflow-x: hidden; /* prevent horizontal scroll */
+  background: #f4f7fb;
+  padding: 5rem 1.5rem 3rem;
+  text-align: center;
+  color: var(--text);
+  border-top: 1px solid #e0e7ef;
 }
 
-.container {
+.footerContainer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-}
-
-.logoBrand {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  flex-shrink: 0;
-}
-
-.brand {
-  font-weight: 700;
-  color: #246bfd;
-  font-size: 1.15rem;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-}
-
-.nav {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex: 1 1 auto; /* allow nav to take flexible space */
-  min-width: 150px; /* prevent nav from shrinking too small */
-}
-
-.nav a {
-  color: #234;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.15s ease-in-out;
-}
-
-.nav a:hover,
-.nav a:focus {
-  color: #246bfd;
-}
-
-.social {
-  display: flex;
-  gap: 1.1rem;
-  flex-shrink: 0;
-}
-
-/* Meta Row stacked vertically on all screens */
-.metaRow {
-  max-width: 600px; /* narrower so it doesn't stretch */
-  margin: 1.5rem auto 0 auto; /* centered horizontally */
-  padding: 0 1rem; /* some side padding */
   display: flex;
   flex-direction: column;
-  align-items: center; /* center horizontally */
-  gap: 0.8rem;
-  font-size: 0.98rem;
-  color: #456;
-  box-sizing: border-box;
-  text-align: center; /* center text inside */
+  gap: 2rem;
+  align-items: center;
 }
 
-.metaRow > * {
-  white-space: normal;
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.footerLinks a {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footerLinks a:hover,
+.footerLinks a:focus {
+  color: var(--primary);
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 128, 255, 0.05); /* TEMP DEBUG */
+}
+
+.socials a {
+  display: flex; /* Changed from inline-flex */
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  background: rgba(255, 0, 0, 0.1); /* TEMP DEBUG */
+}
+
+.socials a:hover,
+.socials a:focus {
+  transform: translateY(-2px);
+}
+
+.socials img {
+  all: unset; /* 🚨 completely resets inherited styles */
+  display: block;
   width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0) invert(40%);
+  transition: filter 0.3s ease;
+  border-radius: 0; /* just in case `all: unset` is skipped */
+}
+
+.iconWrap {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: block;
   flex-shrink: 0;
 }
 
-
-/* Optional: center copyright text */
-.metaRow .copyright {
-  text-align: center;
+.iconWrap :global(img) {
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0) invert(40%);
+  transition: filter 0.3s ease;
 }
 
-/* Mobile / Small screens */
-@media (max-width: 700px) {
-  .container {
-    flex-direction: row;
-    align-items: center;
+.iconWrap:hover :global(img),
+.iconWrap:focus :global(img) {
+  filter: grayscale(0%) brightness(1) invert(0%);
+}
+
+
+
+.socials a:hover img,
+.socials a:focus img {
+  filter: grayscale(0%) brightness(1) invert(0%);
+}
+
+.footerCopyright {
+  font-size: 0.875rem;
+  color: #999;
+  margin-top: 1rem;
+}
+
+@media (max-width: 400px) {
+  .socials {
     gap: 1rem;
   }
 
-  .nav {
-    justify-content: flex-start;
-    gap: 1rem;
-    margin: 0.7rem 0;
-  }
-
-  .footer {
-    font-size: 0.98rem;
-    padding: 1.2rem 0 0.5rem 0;
-  }
-
-  .brand {
-    font-size: 1.1rem;
+  .socials a {
+    width: 24px;
+    height: 24px;
   }
 }

@@ -1,116 +1,49 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css';
+import utils from '@/styles/Utilities.module.css';
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const navRef = useRef(null);
-  const burgerRef = useRef(null);
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Smart Picks', href: '/smart-picks' },
-    { name: 'Get Free Advice', href: '/contact', cta: true },
-  ];
-
-  // Toggle burger menu
-  const toggleMenu = () => setIsOpen((prev) => !prev);
-  const closeMenu = () => setIsOpen(false);
-
-  // Close on outside click
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (
-        isOpen &&
-        navRef.current &&
-        !navRef.current.contains(e.target) &&
-        burgerRef.current &&
-        !burgerRef.current.contains(e.target)
-      ) {
-        closeMenu();
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isOpen]);
-
-  // Scroll shadow toggle (throttled)
   useEffect(() => {
     const handleScroll = () => {
       requestAnimationFrame(() => {
         setScrolled(window.scrollY > 50);
       });
     };
-    handleScroll(); // initial check
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Smart Picks', href: '/smart-picks' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
+  ];
+
   return (
-    <header
-      className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}
-      role="banner"
-    >
-      <div className={styles.innerWrapper}>
-        {/* === Branding / Logo === */}
-        <div className={styles.logoWrapper}>
-          <Link href="/" className={styles.branding} aria-label="Go to homepage">
-            <div className={styles.logoTextWrapper}>
-              <div className={styles.logoPulse}>
-                <Image
-                  src="/logo.png"
-                  alt="Ready Smart Homes logo"
-                  width={40}
-                  height={40}
-                  priority
-                />
-              </div>
-              <span className={styles.brandText}>Ready Smart Homes</span>
-            </div>
-          </Link>
+    <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+      <div className={`${utils.maxWidth} ${styles.navContainer}`}>
+        <Link href="/" className={styles.logo}>
+          <Image src="/logo.png" alt="Ready Smart Homes" width={36} height={36} />
+          <span className={styles.logoText}>Ready Smart Homes</span>
+        </Link>
 
-          <button
-            ref={burgerRef}
-            className={`${styles.burger} ${isOpen ? styles.open : ''}`}
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-            aria-controls="main-navigation"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-
-        {/* === Navigation Links === */}
-        <nav
-          id="main-navigation"
-          ref={navRef}
-          className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}
-          role="navigation"
-          aria-label="Main navigation"
-        >
-          {navLinks.map(({ name, href, cta }) => (
+        <nav className={styles.links}>
+          {navLinks.map(({ name, href }) => (
             <Link
               key={name}
               href={href}
-              prefetch={false}
-              onClick={closeMenu}
-              className={`
-                ${pathname === href ? styles.active : ''}
-                ${cta ? styles.ctaLink : ''}
-              `}
+              className={`${styles.link} ${pathname === href ? styles.active : ''}`}
             >
               {name}
             </Link>

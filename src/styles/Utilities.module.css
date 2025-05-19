@@ -1,0 +1,100 @@
+/* === SPACING STACKS === */
+.stack-sm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stack-md {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.stack-lg {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* === FLEX UTILS === */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* === TEXT ALIGN === */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* === WIDTHS === */
+.w-full {
+  width: 100%;
+}
+
+.max-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+/* === DISPLAY === */
+.hidden {
+  display: none;
+}
+
+/* === GRID LAYOUTS === */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Mobile-first: 1 column */
+.grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Wide desktop: 4 columns */
+@media (min-width: 1280px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Responsive auto-fit utility (for flexible card widths) */
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}

@@ -1,157 +1,68 @@
 .highlightsSection {
-  max-width: 900px;
-  margin: clamp(4.5rem, 7vw, 7rem) auto 4rem auto;
-  padding: 0 1.2rem;
+  padding: 5rem 1.5rem 3rem;
   text-align: center;
-  box-sizing: border-box;
 }
 
 .highlightsTitle {
-  font-size: clamp(1.33rem, 3vw, 2.15rem);
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  line-height: 1.14;
-  margin: 0 auto 2.1rem auto;
-  color: #243357;
-  position: relative;
-}
-.highlightsTitle::after {
-  content: "";
-  display: block;
-  width: 44px;
-  height: 3px;
-  background: #246bfd;
-  border-radius: 1.6px;
-  margin: 1.1rem auto 0 auto;
-  opacity: 0.12;
-}
-
-.highlightsGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.1rem 2.3rem;
-  max-width: 900px;
-  margin: 0 auto;
-  box-sizing: border-box;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin-bottom: 3rem;
+  color: var(--heading);
+  text-align: center;
 }
 
 .highlightCard {
-  background: #fff;
-  border-radius: 1.15rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.17);
-  padding: 2rem 1.3rem 1.5rem 1.3rem;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  transition: box-shadow 0.17s, transform 0.15s, border-color 0.13s;
-  border: 1.2px solid #eef2f8;
-  width: 100%;
-  min-height: 172px;
-  cursor: default;
-  box-sizing: border-box;
+  justify-content: flex-start;
+  gap: 1rem;
+  height: 100%;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  align-items: center;
 }
 
-.highlightCard:hover,
-.highlightCard:focus-within {
-  box-shadow: 0 18px 54px rgba(36, 107, 253, 0.13), 0 2px 8px rgba(30,56,100,0.07);
-  transform: translateY(-4px) scale(1.025);
-  border-color: #b5cdf9;
+.highlightCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 .highlightHeader {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 0.55rem;
-  width: 100%;
+  gap: 0.75rem;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--heading);
 }
 
 .icon {
-  font-size: 2.15rem;
-  line-height: 1;
-  filter: drop-shadow(0 1.5px 7px #e8f1ff);
-  margin-bottom: 0;
-  flex-shrink: 0;
-}
-
-.highlightCard h4 {
-  margin: 0;
-  font-size: 1.16rem;
-  font-weight: 800;
-  color: #222e3c;
-  line-height: 1.32;
-  letter-spacing: -0.01em;
-  white-space: normal;
+  font-size: 1.75rem;
 }
 
 .highlightCard p {
-  font-size: 1.07rem;
-  color: #566176;
-  margin: 0;
-  line-height: 1.56;
-  font-weight: 400;
-  flex-grow: 1;
-  display: block;
-  text-align: left;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
 }
 
-/* CTA button below */
+/* CTA button */
 .cta {
   display: inline-block;
-  margin-top: 1.6rem;
-  background: #246bfd;
-  color: #fff;
-  font-weight: 700;
-  padding: 0.9rem 2.2rem;
-  border-radius: 2rem;
+  margin-top: 3rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  color: white;
+  background: var(--primary);
+  border-radius: var(--radius);
   text-decoration: none;
-  font-size: 1.11rem;
-  box-shadow: 0 8px 20px rgba(36, 107, 253, 0.11);
-  transition: background 0.16s, transform 0.13s;
-  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .cta:hover {
-  background: #1b50d6;
-  transform: translateY(-1.5px) scale(1.045);
+  background: var(--primary-hover);
 }
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .highlightsGrid {
-    grid-template-columns: 1fr;
-    gap: 1.4rem;
-    max-width: 97vw;
-  }
-  .highlightsSection {
-    margin-top: 2.7rem;
-  }
-  .highlightsTitle {
-    font-size: 1.33rem;
-    margin-bottom: 1.2rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .highlightsSection {
-    padding: 0 0.5rem;
-  }
-  .highlightCard {
-    padding: 1.2rem 0.6rem 1.08rem 0.6rem;
-    border-radius: 0.9rem;
-  }
-  .highlightHeader {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.18rem;
-    margin-bottom: 0.45rem;
-  }
-  .icon {
-    font-size: 2rem;
-  }
-  .highlightCard h4 {
-    font-size: 1.09rem;
-  }
-}
-

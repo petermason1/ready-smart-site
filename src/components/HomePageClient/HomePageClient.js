@@ -6,7 +6,7 @@ import UseCases from '@/components/UseCases';
 import ServiceHighlights from '@/components/ServiceHighlights';
 import ServiceGrid from '@/components/ServiceGrid';
 import HowItWorks from '@/components/HowItWorks';
-import BlogCarousel from '@/components/BlogCarousel';
+import BlogCarousel from '@/components/BlogGrid';
 import Testimonials from '@/components/Testimonials/TestimonialCarousel';
 import FooterCTA from '@/components/FooterCTA';
 
