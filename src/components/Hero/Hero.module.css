@@ -1,110 +1,137 @@
 .hero {
   width: 100%;
-  min-height: 92vh;
-  background: linear-gradient(120deg, #eaf3ff 0%, #d6edff 52%, #f4faff 100%);
+  min-height: min(100dvh, 92vh);
+  min-height: min(100vh, 92vh); /* fallback */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
+  overflow: hidden;
+  background: linear-gradient(160deg, #eff6ff 0%, #dbeafe 40%, #e0e7ff 100%);
 }
 
-
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(99, 102, 241, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 0% 80%, rgba(59, 130, 246, 0.08), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
 
 .hero::after {
   content: "";
   position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(60px, 12vw, 100px);
   pointer-events: none;
-  background: linear-gradient(180deg, transparent, #f4faff 100%);
+  background: linear-gradient(to top, var(--background), transparent);
   z-index: 2;
 }
-
-
 
 .overlay {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: linear-gradient(120deg, rgba(255,255,255,0.07) 0%, rgba(234,243,255,0.19) 100%);
+  opacity: 0.6;
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, transparent 50%);
 }
 
 .heroContent {
   position: relative;
   z-index: 1;
-  max-width: 680px;
+  max-width: 720px;
   width: 100%;
   text-align: center;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 2.5rem 1.5rem;
-  color: #143869;
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem);
+  padding-top: max(env(safe-area-inset-top), clamp(1.5rem, 5vw, 3rem));
+  padding-bottom: max(env(safe-area-inset-bottom), clamp(1.5rem, 5vw, 3rem));
+  padding-left: max(env(safe-area-inset-left), clamp(1rem, 4vw, 2rem));
+  padding-right: max(env(safe-area-inset-right), clamp(1rem, 4vw, 2rem));
+  color: var(--heading);
   box-sizing: border-box;
 }
 
 .title {
-  font-size: clamp(2.8rem, 6vw, 4rem);
-  font-weight: 900;
-  line-height: 1.07;
-  margin-bottom: 1.2rem;
-  color: #122c4d;
-  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
+  color: var(--heading);
 }
 
 .subtitle {
-  font-size: clamp(1.22rem, 3vw, 1.55rem);
-  color: #34485c;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: var(--text-muted);
   font-weight: 500;
-  margin-bottom: 1.4rem;
+  line-height: 1.5;
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  max-width: 32ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .highlightLine {
-  margin-bottom: 2.2rem;
-  font-size: 1.13rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 }
 
 .highlightWord {
-  background: linear-gradient(90deg, #246bfd 40%, #45b5fa 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  font-weight: 800;
+  font-weight: 700;
   display: inline-block;
 }
 
 .ctaButton {
-  background: #246bfd;
+  background: var(--primary);
   color: #fff;
-  padding: 0.83rem 2.25rem;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 1.1rem;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.25rem);
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   text-decoration: none;
-  box-shadow: 0 8px 20px rgba(36, 107, 253, 0.12);
-  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   display: inline-block;
-  margin-top: 0.4rem;
+  margin-top: 0.25rem;
+  border: none;
+  cursor: pointer;
 }
 
 .ctaButton:hover,
 .ctaButton:focus {
-  background: #1143b6;
-  transform: translateY(-2px) scale(1.025);
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+  outline: none;
 }
 
-@media (max-width: 600px) {
-  .title {
-    font-size: clamp(2rem, 7vw, 2.7rem);
-  }
+.ctaButton:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
   .heroContent {
-    padding: 1.4rem 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-  .ctaButton {
-    font-size: 1rem;
-    padding: 0.75rem 1.7rem;
+  .title {
+    font-size: clamp(1.75rem, 10vw, 2.25rem);
   }
 }

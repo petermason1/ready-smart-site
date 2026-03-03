@@ -1,11 +1,13 @@
 .highlightsSection {
-  padding: 5rem 1.5rem 3rem;
+  padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(2rem, 5vw, 3rem);
   text-align: center;
 }
 
 .highlightsTitle {
-  font-size: clamp(2rem, 5vw, 2.75rem);
-  margin-bottom: 3rem;
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
   color: var(--heading);
   text-align: center;
 }
@@ -13,56 +15,60 @@
 .highlightCard {
   background: var(--card-bg);
   border-radius: var(--radius);
-  padding: 2rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 1rem;
+  gap: 0.75rem;
   height: 100%;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
   text-align: center;
   align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .highlightCard:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 
 .highlightHeader {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  font-weight: 600;
   color: var(--heading);
 }
 
 .icon {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
 .highlightCard p {
-  color: var(--text);
-  font-size: 1rem;
+  color: var(--text-muted);
+  font-size: clamp(0.9rem, 2vw, 1rem);
   line-height: 1.5;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
-/* CTA button */
 .cta {
   display: inline-block;
-  margin-top: 3rem;
-  padding: 0.75rem 1.75rem;
-  font-size: 1rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(0.65rem, 2vw, 0.85rem) clamp(1.25rem, 3vw, 1.75rem);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 600;
   color: white;
   background: var(--primary);
-  border-radius: var(--radius);
+  border-radius: 9999px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .cta:hover {
   background: var(--primary-hover);
+  transform: translateY(-1px);
 }

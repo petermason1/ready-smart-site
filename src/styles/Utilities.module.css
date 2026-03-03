@@ -18,12 +18,12 @@
 }
 
 .maxWidth {
-  max-width: 1200px;    /* or your preferred width */
+  max-width: var(--max-width);
   margin: 0 auto;
   width: 100%;
-  /* Optional: add side padding for small screens */
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: max(env(safe-area-inset-left), var(--section-padding-mobile));
+  padding-right: max(env(safe-area-inset-right), var(--section-padding-mobile));
+  box-sizing: border-box;
 }
 
 
@@ -83,10 +83,17 @@
   grid-template-columns: 1fr;
 }
 
+.grid {
+  gap: clamp(1rem, 3vw, 1.5rem);
+}
+
 /* Tablet: 2 columns */
 @media (min-width: 640px) {
   .grid-cols-2 {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .grid {
+    gap: 1.25rem;
   }
 }
 
@@ -94,6 +101,9 @@
 @media (min-width: 1024px) {
   .grid-cols-3 {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .grid {
+    gap: 1.5rem;
   }
 }
 
