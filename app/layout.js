@@ -1,4 +1,5 @@
 import './globals.css';
+import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
@@ -50,21 +51,18 @@ export default function RootLayout({ children }) {
       </head>
 
       <body>
-        {/* Google Analytics - native script to avoid RSC manifest error */}
-        <script
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VHE1WE56M8"
-          async
+          strategy="afterInteractive"
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-VHE1WE56M8', { page_path: window.location.pathname });
-            `,
-          }}
-        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VHE1WE56M8', { page_path: window.location.pathname });
+          `}
+        </Script>
         <Navbar />
         {children}
         <Footer />
