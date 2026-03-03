@@ -7,7 +7,6 @@
   justify-content: center;
   position: relative;
   box-sizing: border-box;
-  /* No max-width, no margin: 0 auto */
 }
 
 
@@ -18,7 +17,6 @@
   left: 0; right: 0; bottom: 0;
   height: 80px;
   pointer-events: none;
-  /* Fade from transparent to your site background */
   background: linear-gradient(180deg, transparent, #f4faff 100%);
   z-index: 2;
 }
