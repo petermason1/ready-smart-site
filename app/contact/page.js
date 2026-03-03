@@ -30,14 +30,14 @@ export default function ContactPage() {
   return (
     <div className={styles.contactContainer}>
       <section className={styles.contactSection} aria-labelledby="contact-heading">
-        <h1 id="contact-heading" className={styles.heading}>Let's Connect</h1>
+        <h1 id="contact-heading" className={styles.heading}>Let&apos;s Connect</h1>
         <p className={styles.subheading}>
-          Got a question or ready to upgrade your home? Fill out the form and we'll get back to you within 1 business day.
+          Got a question or ready to upgrade your home? Fill out the form and we&apos;ll get back to you within 1 business day.
         </p>
 
         {submitted ? (
           <div className={styles.confirmation}>
-            ✅ Thanks! We'll be in touch soon.
+            ✅ Thanks! We&apos;ll be in touch soon.
           </div>
         ) : (
           <form onSubmit={handleSubmit} className={styles.form} noValidate>

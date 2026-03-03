@@ -32,7 +32,7 @@ export default function NotFound() {
           lineHeight: 1.6,
         }}
       >
-        The page you're looking for doesn't exist or hasn't been published yet.
+        The page you&apos;re looking for doesn&apos;t exist or hasn&apos;t been published yet.
       </p>
 
       <Link
