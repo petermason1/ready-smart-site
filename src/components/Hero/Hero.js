@@ -40,7 +40,6 @@ export default function Hero() {
           transition={{ delay: 0.65, duration: 0.45 }}
         >
           <span className={styles.highlightWord}>No jargon.</span>{' '}
-          <span className={styles.highlightWord}>No faff.</span>{' '}
           <span className={styles.highlightWord}>Just results.</span>
         </motion.p>
 
